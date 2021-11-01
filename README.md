@@ -23,7 +23,7 @@
 
 ## **Mission**
 
-- [미션 1: 다각형 넓이 구하기](mission_day01_getArea.js)
+- [미션 1: 다각형 넓이 구하기](mission_01_getArea.js)
 
 <br>
 
