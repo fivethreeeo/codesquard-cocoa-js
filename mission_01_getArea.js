@@ -23,6 +23,10 @@
   3. printExecutionSequence 함수 수정
     - 수행순서 뿐 아니라, 함수의 결과까지 순서대로 같이 출력하는 기능을 만들어보자.
 
+  4. [추가미션] 사용자 입력을 받아서 처리되도록 해본다.
+      /src/> node mypromgram.js
+      > 'rect$rect$$circle
+      > //rect함수 2번 호출 결과와 circle 1번 실행 결과 노출
 
   ** [풀이] **
   - getArea() 을 통해서만 넓이 값을 구하는 것으로 한정. 예) getRect() 단일로 호출 x
@@ -33,7 +37,35 @@
 
 'use-strict';
 
-let logArr = []; // log를 모으는 배열
+// node.js 로 입력 값 받아서 결과 도출하기
+// 참고 링크 https://nscworld.net/2020/12/28/node-js%EC%97%90%EC%84%9C-%EC%9E%85%EB%A0%A5%EB%B0%9B%EB%8A%94-%EB%B0%A9%EB%B2%95/
+const readline = require('readline');
+const std = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+std
+  .on('line', (line) => {
+    input = line.split('$').map((shape) => shape);
+    // 문제 1. 입력 값에 상관 없이 getArea() 4번 실행
+    // 문제 2. ...size를 못받아옴
+
+    // 작업 필요
+    // 1. shape 말고 다른 인자들 받아오기
+    // 2. 먼저 (shape + ...size)를 묶어서 배열에 하나씩 넣고
+    // 3. 배열 하나씩 차례대로 getArea()에 인자를 넣어서 실행
+    getArea(input[0], 10);
+    getArea(input[1], 1, 10);
+    getArea(input[2], 10, 20);
+    getArea(input[3], 10, 20, 50);
+    printExecutionSequence();
+    std.close();
+  })
+  .on('close', () => process.exit());
+
+// 전역변수
+let logArr = []; //log 저장 배열
 
 // Get Area
 function getArea(shape, ...size) {
@@ -95,6 +127,7 @@ function printExecutionSequence() {
   console.log(printLog);
 }
 
+// 테스트 하기
 function testCase() {
   logArr = [];
   getArea('circle', 0);
@@ -105,5 +138,4 @@ function testCase() {
   console.log(logArr);
   return logArr;
 }
-
-testCase();
+//testCase();
