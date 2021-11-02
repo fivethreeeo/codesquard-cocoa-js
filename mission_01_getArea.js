@@ -141,6 +141,7 @@ std
   .on('close', () => process.exit());
 
 // 테스트 하기!
+// 예상 출력 내용 : log: circle, 314 / circle, 1210 / rect, 200 / trapezoid, 750
 function testCase() {
   logArr = [];
   getArea('circle', 10);
