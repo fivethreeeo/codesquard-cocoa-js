@@ -39,6 +39,12 @@ gildong의 차례의 대답을 gildongAnswerArray 배열에 추가
 'use-strict';
 
 function playNotation(notation, count, playerNumber, gildongTurn) {
+  // 예외처리
+  if (notation > 1 && notation < 17 === false) {
+    console.log('2~16의 숫자를 입력하세요.');
+    return;
+  }
+
   // 1
   const totalCount = count * playerNumber;
 
@@ -72,4 +78,4 @@ function playNotation(notation, count, playerNumber, gildongTurn) {
   console.log(`길동이 차례 대답: ${gildongAnswerArray}`);
 }
 
-playNotation(8, 4, 4, 3);
+playNotation(20, 4, 4, 3);
