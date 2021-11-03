@@ -116,6 +116,10 @@ function printExecutionSequence() {
 
 // node.js 로 입력 값 받아서 결과 도출하기
 // 참고 링크 https://nscworld.net/2020/12/28/node-js%EC%97%90%EC%84%9C-%EC%9E%85%EB%A0%A5%EB%B0%9B%EB%8A%94-%EB%B0%A9%EB%B2%95/
+// ex)
+// 사용자 입력 : circle,10/circle,1,10/rect,10,20/trapezoid,10,20,50
+// 예상 출력 내용 : log: circle, 314 / circle, 1210 / rect, 200 / trapezoid, 750
+
 const readline = require('readline');
 const std = readline.createInterface({
   input: process.stdin,
@@ -124,10 +128,8 @@ const std = readline.createInterface({
 
 std
   .on('line', (line) => {
-    // 1. 사용자 입력 형태 : circle,10/circle,1,10/rect,10,20/trapezoid,10,20,50
-    // 2. ['shape,number,number', 'shape,number,number'] 형태로 분리해 배열 만듬
-    // 3. 반복문으로 getArea(shape, number, number) 호출
-
+    // 1. 입력 받은 내용을 ['shape,number,number', 'shape,number,number'] 형태로 분리해 배열 만듬
+    // 2. 반복문으로 getArea(shape, number, number) 호출
     logArr = [];
     userInputArr = line.split('/');
     userInputArr.forEach((value) => {
