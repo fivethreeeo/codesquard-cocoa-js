@@ -24,16 +24,23 @@
 ## **Mission**
 
 - [미션 1: 다각형 넓이 구하기](mission_01_getArea.js)
-- [미션 2: 진수 변환기](mission_02_notation.js)
+- [미션 2-1: 진수 변환기](mission_02_1_notation.js)
+- [미션 2-2: 배열 다루기]() 11/4(Fri)
 
 <br>
 
 ## **Study Log**
 
-- 새롭게 학습한 것 위주로 정리하자
-  - [debugging 기술문서 정리]
-  - [node.js 개발환경]
-  - [자바스크립트 함수, 함수문법 표현식, 화살표함수, 선언문, 파라미터, 인자]
-  - [함수 호출 스택과 디버깅]
-  - [배열 reduce, map, set 등등]
-  - [JavaScript 객체를 iteration하고 객체의 속성에 접근해서 추가/변경할 수 있다.]
+- [자바스크립트 함수, 함수문법 표현식, 화살표함수, 선언문, 파라미터, 인자]() 11/3(Thu)
+- [배열, 고차함수 foreach, map등등]() 11/3(Thu)
+- [reduce 메서드 직접 만들기]() 11/4(Fri)
+- [set & map, object/array 차이, 언제쓰지?]() 11/4(Fri)
+
+- queue
+  - [객체!!]()
+  - [higher order functions은 어떻게 메서드 체이닝이 가능할까? 그 이유를 알아보자.]()
+  - [JavaScript 객체를 iteration하고 객체의 속성에 접근해서 추가/변경할 수 있다.]()
+  - [함수 호출 스택과 디버깅]()
+  - [debugging 기술문서 정리]()
+  - [node.js 개발환경]()
+  - [자바스크립트와 이크마 관계? 노드관계?]()
