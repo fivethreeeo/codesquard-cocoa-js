@@ -25,22 +25,30 @@
 
 - [미션 1: 다각형 넓이 구하기](mission_01_getArea.js)
 - [미션 2-1: 진수 변환기](mission_02_1_notation.js)
-- [미션 2-2: 배열 다루기]() 11/4(Fri)
+- [미션 2-2: 배열 다루기]() 11/5(Fri)
 
 <br>
 
-## **Study Log**
+## **Study Logs**
 
-- [자바스크립트 함수, 함수문법 표현식, 화살표함수, 선언문, 파라미터, 인자]() 11/3(Thu)
-- [배열, 고차함수 foreach, map등등]() 11/3(Thu)
-- [reduce 메서드 직접 만들기]() 11/4(Fri)
-- [set & map, object/array 차이, 언제쓰지?]() 11/4(Fri)
+- Week 1
+- Week 2
+- Week 3
+- Week 4
+- Week 5
+
+## **Study Notes**
+
+- 11/4(Thu)[자바스크립트 함수, 함수문법 표현식, 화살표함수, 선언문, 파라미터, 인자]
+- 11/4(Thu)[배열, 고차함수 foreach, map등등]
+- 11/5(Fri)[reduce 메서드 직접 만들기]
+- 11/5(Fri)[set & map, object/array 차이, 언제쓰지?]
 
 - queue
-  - [객체!!]()
-  - [higher order functions은 어떻게 메서드 체이닝이 가능할까? 그 이유를 알아보자.]()
-  - [JavaScript 객체를 iteration하고 객체의 속성에 접근해서 추가/변경할 수 있다.]()
-  - [함수 호출 스택과 디버깅]()
-  - [debugging 기술문서 정리]()
-  - [node.js 개발환경]()
-  - [자바스크립트와 이크마 관계? 노드관계?]()
+  - [객체!!]
+  - [higher order functions은 어떻게 메서드 체이닝이 가능할까? 그 이유를 알아보자.]
+  - [JavaScript 객체를 iteration하고 객체의 속성에 접근해서 추가/변경할 수 있다.]
+  - [함수 호출 스택과 디버깅]
+  - [debugging 기술문서 정리]
+  - [node.js 개발환경]
+  - [자바스크립트와 이크마 관계? 노드관계?]
