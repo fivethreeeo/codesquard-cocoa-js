@@ -1,8 +1,9 @@
 /*
+==========================================================
 
 ** [미션 2] 진수 변환기 **
 
-  mission(8, 4, 4, 3) // 8진수, 참가자당 숫자 4개 씩, 참가자 수 4명, 길동이 순서는 3번째
+  playNotation(8, 4, 4, 3) {} // 8진수, 참가자당 숫자 4개 씩, 참가자 수 4명, 길동이 순서는 3번째
 
   > 2~16진수까지만 동작
 
@@ -13,24 +14,32 @@
 
 ** 프로그래밍 순서 **
 
-  1.
+  1)
   함수 만들기 playNotation(notation, count, playerNumber, gildongTurn) {}
   notation -> n진수
   totalCount = count * playerNumber -> 말할 총 숫자 개수
   gildongTurn -> 길동이 순서(숫자)
 
-  2.
+  2)
   0 ~ totalCount 순회 -> 숫자를 n진수로 변환
   변환된 숫자들의 배열 notationArray에 push
 
-  3.
+  3)
   notationArray의 숫자들을 1자리 씩 쪼개서
   allAnswer 배열에 추가
 
-  4.
+  4)
   allAnswer에서 gildong가 대답할 숫자들 찾기
   gildong의 차례의 대답을 gildongAnswer 배열에 추가
 
+  5)
+  결과 출력
+  - 매개변수
+  - n진수로 변환한 숫자
+  - 모든 참가자들이 1자리씩 대답할 숫자
+  - 길동이 차례에 대답할 숫자
+
+==========================================================
 */
 
 'use-strict';
