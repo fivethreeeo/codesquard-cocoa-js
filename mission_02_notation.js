@@ -20,7 +20,7 @@
 
 1.
 notation -> n진수
-count * playerNumber -> 말할 총 숫자 개수
+totalCount = count * playerNumber -> 말할 총 숫자 개수
 gildongTurn -> 길동이 순서(숫자)
 
 2.
@@ -38,7 +38,7 @@ gildong의 차례의 대답을 gildongAnswer 배열에 추가
 
 'use-strict';
 
-// 진수 변환기 + 길동이 차례 대답 찾기
+// playNotation() : 진수 변환기 + 길동이 차례 대답 찾기
 function playNotation(notation, count, playerNumber, gildongTurn) {
   if (notation > 1 && notation < 17 === false) {
     console.log('2~16의 숫자를 입력하세요.');
@@ -48,8 +48,6 @@ function playNotation(notation, count, playerNumber, gildongTurn) {
   const totalCount = count * playerNumber;
   const notationArray = doNotation(totalCount, notation); // 2
   const allAnswer = makeAnswer(notationArray); // 3
-
-  // 4
   const gildongAnswer = findPlayerAnswer(allAnswer, playerNumber, gildongTurn);
 
   // print
@@ -61,7 +59,7 @@ function playNotation(notation, count, playerNumber, gildongTurn) {
   console.log(`길동이 차례 대답: ${gildongAnswer}`);
 }
 
-// 0~count 숫자를 notation진수로 변환한 배열을 만듬
+// doNotation() : 0~count 숫자를 notation진수로 변환한 배열을 만듬
 function doNotation(count, notation) {
   const result = [];
   for (let i = 0; i < count; i++) {
@@ -71,12 +69,12 @@ function doNotation(count, notation) {
   return result;
 }
 
-// 받은 내용을 하나의 문자열로 만들고 그것을 다시 1자리씩 분리한 배열을 만듬
+// makeAnswer() : 받은 내용을 하나의 문자열로 만들고 그것을 다시 1자리씩 분리한 배열을 만듬
 function makeAnswer(array) {
   return Array.from(array.join(''));
 }
 
-// 전체 대답, 참가자 수, 특정 참가자의 차례를 받아서 특정 참가자의 대답을 찾아줌
+// findPlayerAnswer() : 전체 대답, 참가자 수, 특정 참가자의 차례를 받아서 특정 참가자의 대답을 찾아줌
 function findPlayerAnswer(allAnswer, playerNumber, playerTurn) {
   const playerAnswer = [];
   const firstIndex = playerTurn - 1;
