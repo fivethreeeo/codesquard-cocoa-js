@@ -24,6 +24,7 @@
 ## **Mission**
 
 - [미션 1: 다각형 넓이 구하기](mission_01_getArea.js)
+- [미션 2: 진수 변환기](mission_02_notation.js)
 
 <br>
 
@@ -35,4 +36,4 @@
   - [자바스크립트 함수, 함수문법 표현식, 화살표함수, 선언문, 파라미터, 인자]
   - [함수 호출 스택과 디버깅]
   - [배열 reduce, map, set 등등]
-  - [객체 iteration, 객체 속성 추가/변경]
+  - [JavaScript 객체를 iteration하고 객체의 속성에 접근해서 추가/변경할 수 있다.]
