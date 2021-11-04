@@ -35,7 +35,11 @@
 ## **Study Logs**
 
 - Week 1
+  - `Day 05` : bla bla bla
+  - `Day 06` : bla bla bla
+  - `Day 07` : bla bla bla
 - Week 2
+  - `Day 08` : bla bla bla
 - Week 3
 - Week 4
 - Week 5
