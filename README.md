@@ -1,4 +1,4 @@
-# **Today I Learned with COCOA**
+# **Study Note with cocoa-js**
 
 - 코드스쿼드 코코아JS 과정에서 수행한 미션, 학습 정리 등을 기록하는 공간입니다.
 - 2021.11.1 ~ 2021.12.2
