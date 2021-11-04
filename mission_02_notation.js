@@ -85,7 +85,7 @@ const makeAnswer = (array) => Array.from(array.join(''));
 function findPlayerAnswer(allAnswer, playerNumber, playerTurn) {
   const playerFirstIndex = playerTurn - 1;
   const playerAnswer = allAnswer.filter(
-    (value, index) => index % playerNumber === playerFirstIndex
+    (v, index) => index % playerNumber === playerFirstIndex
   );
 
   return playerAnswer;
