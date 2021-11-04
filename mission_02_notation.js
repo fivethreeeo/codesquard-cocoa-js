@@ -68,16 +68,6 @@ function playNotation(notation, count, playerNumber, gildongTurn) {
   printResult(result);
 }
 
-// printResult() : playNotation()의 결과 값 출력.
-function printResult(result) {
-  console.log(
-    `변환할 진수: ${result[0]} / 숫자 개수: ${result[1]} / 참가자 수: ${result[2]} / 길동's 순서: ${result[3]}`
-  );
-  console.log(`8진수 변환 : ${result[4]}`);
-  console.log(`1자리씩 대답: ${result[5]}`);
-  console.log(`길동이 차례 대답: ${result[6]}`);
-}
-
 // doNotation() : 0~count 숫자를 notation진수로 변환한 배열을 만듬
 function doNotation(count, notation) {
   const result = [];
@@ -89,9 +79,7 @@ function doNotation(count, notation) {
 }
 
 // makeAnswer() : 받은 내용을 하나의 문자열로 만들고 그것을 다시 1자리씩 분리한 배열을 만듬
-function makeAnswer(array) {
-  return Array.from(array.join(''));
-}
+const makeAnswer = (array) => Array.from(array.join(''));
 
 // findPlayerAnswer() : 전체 대답, 참가자 수, 특정 참가자의 차례를 받아서 특정 참가자의 대답을 찾아줌
 function findPlayerAnswer(allAnswer, playerNumber, playerTurn) {
@@ -104,7 +92,18 @@ function findPlayerAnswer(allAnswer, playerNumber, playerTurn) {
     const value = allAnswer[playerIndex];
     value && playerAnswer.push(value);
   }
+
   return playerAnswer;
+}
+
+// printResult() : playNotation()의 결과 값 출력.
+function printResult(result) {
+  console.log(
+    `변환할 진수: ${result[0]} / 숫자 개수: ${result[1]} / 참가자 수: ${result[2]} / 길동's 순서: ${result[3]}`
+  );
+  console.log(`8진수 변환 : ${result[4]}`);
+  console.log(`1자리씩 대답: ${result[5]}`);
+  console.log(`길동이 차례 대답: ${result[6]}`);
 }
 
 // testCase : 테스트
