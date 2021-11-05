@@ -5,3 +5,7 @@
 */
 
 'use-strict';
+
+var result = true && true && 1 && undefined;
+
+console.log(result);
