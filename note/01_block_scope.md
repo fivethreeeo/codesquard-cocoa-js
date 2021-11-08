@@ -1,12 +1,14 @@
 ##### 최초작성일 : 2021. 11. 8.<br><br>
 
-# Block Scope
+# Block Scope, Hoisting
 
-[Scope, Function Scope, Block Scope](#scope-function-scope-block-scope)
+[Scope, Function Scope, Block Scope 개념](#scope-function-scope-block-scope)  
+[var vs let, const](#var-vs-let-const)  
+[let, const 또한 hoisting 한다, TDZ](#let-const-또한-hoisting-한다)
 
 <br><br>
 
-## **Scope, Function Scope, Block Scope**
+## **Scope, Function Scope, Block Scope 개념**
 
 **Scope :**
 
@@ -65,7 +67,7 @@ console.log(a); // ReferenceError: a is not defined
 
 </br>
 
-### var vs let, const
+## `var` vs `let, const`
 
 - var는 블록 스코프에 영향을 받지 않는다.
 
@@ -86,7 +88,7 @@ hasValue(10);
 
 ```js
 function hasValue(p) {
-  console.log(v); // v is not defined
+  console.log(v); // ReferenceError: v is not defined
   if (p) {
     let v = 'blue';
     console.log(v); // blue
@@ -94,46 +96,48 @@ function hasValue(p) {
     let v = 'red';
     console.log(v);
   }
-  console.log(v); // v is not defined
+  console.log(v); // ReferenceError: v is not defined
 }
 hasValue(10);
 ```
 
-## 1-2. 상세
+</br>
 
-### 1) 블록 스코프는 let, const에 대해서만.
+## `let`, `const` 또한 `hoisting` 한다
 
-```js
-console.log(a); // undifined
-if (true) {
-  var a = 10;
-  if (true) {
-    var a = 20;
-    console.log(a); // 20
-  }
-  console.log(a); // 20
-}
-console.log(a); // 20
-```
+- let, const는 블록 스코프 내에서 호이스팅한다.
+- 변수 선언을 호이스팅 하지만 어떠한 값도 할당하지 않는다.
 
 ```js
-console.log(a); // ReferenceError: a is not defined
 if (true) {
   let a = 10;
   if (true) {
+    console.log(a); // ReferenceError: Cannot access 'a' before initialization
     const a = 20;
-    console.log(a); // 20
   }
   console.log(a); // 10
 }
 console.log(a); // ReferenceError: a is not defined
 
-// const가 호이스팅이 안된다면, 10 출력해야함
-// ReferenceError: Cannot access 'a' before initialization
-// const a 가 호이스팅이 됐지만, undifined를 할당하지 않았기에 위의 에러가 나타난다.
+// 'const a = 20'이 호이스팅이 안된다면,
+// 상위 스코프의 'let a = 10'을 받아와 10을 출력해야 한다.
+
+// 스코프 상관없이 전부 호이스팅이 됐다면,
+// let a , const a가 중복되어
+// Uncaught SyntaxError: Identifier 'a' has already been declared 가 나왔어야 함.
+
+// 하지만 -> ReferenceError: Cannot access 'a' before initialization
+// 블록 스코프 범위에서 const a 가 호이스팅이 됐지만, 어떠한 값도 할당하지 않았기에 위의 에러가 난다.
 ```
 
-### 2) Hoisting ?
+> TDZ: 임시사각지대
+>
+> - let 또는 const로 변수를 선언한 위치에 오기 전까지는 이 변수를 호출할 수 없다.
+> - 그 영역을 TDZ라고 한다.
+
+</br>
+
+## Hoisting
 
 모든 데이터는 셋 중 하나
 값. 식. 문
@@ -155,8 +159,8 @@ console.log(a); // ReferenceError: a is not defined
 if (true) {
   let a = 10;
   if (true) {
-    console.log(a);
     const a = 20;
+    console.log(a);
   }
   console.log(a);
 }
