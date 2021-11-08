@@ -1,14 +1,36 @@
 ##### 최초작성일 : 2021. 11. 8.<br><br>
 
-# Block Scope, Hoisting
+# Block Scope, Hoisting, this
 
-[Scope, Function Scope, Block Scope 개념](#scope-function-scope-block-scope)  
+[Statement vs Expression](#statement-vs-expression)  
+[Scope, Function Scope, Block Scope 개념](#scope-function-scope-block-scope-개념)  
 [var vs let, const](#var-vs-let-const)  
-[let, const 또한 hoisting 한다, TDZ](#let-const-또한-hoisting-한다)
+[let, const 또한 hoisting 한다, TDZ](#let-const-또한-hoisting-한다-tdz)  
+[this](#this)
 
 <br><br>
 
-## **Scope, Function Scope, Block Scope 개념**
+## Statement vs Expression
+
+- 모든 데이터는 셋 중 하나 -> `값, 식, 문`
+- `값`과 `식`은 동일한 것으로 간주
+
+- **statement**
+
+  - 문. if문, for문, while문, switch-case문 등
+  - 문 자체가 하나의 `block-scope`
+  - 결과 리턴 x, 그 안의 구문을 실행하고 끝이다.
+
+- **expression**
+
+  - 식. 값이 될 수 있는 경우
+  - 값으로 표현
+  - `(10+20)`
+  - `'abc' + 'def'`
+
+</br>
+
+## Scope, Function Scope, Block Scope 개념
 
 **Scope :**
 
@@ -47,8 +69,6 @@
 }
 console.log(a); // ReferenceError: a is not defined
 ```
-
-</br>
 
 ```js
 // 'var' in Function Scope
@@ -103,10 +123,14 @@ hasValue(10);
 
 </br>
 
-## `let`, `const` 또한 `hoisting` 한다
+## `let`, `const` 또한 `hoisting` 한다, TDZ
 
 - let, const는 블록 스코프 내에서 호이스팅한다.
 - 변수 선언을 호이스팅 하지만 어떠한 값도 할당하지 않는다.
+- 호이스팅?
+  - var : 변수명만 위로 끌어올리고 / undefined를 할당한다.
+  - let, const : 변수명만 위로 끌어올리고 / 끝. 값 할당x
+  - 결국 -> var, let, const 다 호이스팅 한다.
 
 ```js
 if (true) {
@@ -134,56 +158,13 @@ console.log(a); // ReferenceError: a is not defined
 >
 > - let 또는 const로 변수를 선언한 위치에 오기 전까지는 이 변수를 호출할 수 없다.
 > - 그 영역을 TDZ라고 한다.
+> - 위의 예제에서는 console.log(a) 와 const a = 20 사이가 TDZ 다.
 
 </br>
 
-## Hoisting
+## this
 
-모든 데이터는 셋 중 하나
-값. 식. 문
-값과 식은 동일한 것으로 간주
-
-- statement.
-
-  - 문. statement. if문, for문, while문, switch-case문.
-  - 결과 리턴 x, 그 안의 구문을 실행하고 끝이다.
-  - 문 자체가 하나의 block-scope
-
-- expression.
-  - 식. expression. 값이 될 수 있는 경우
-  - 값으로 표현
-  - (10+20)
-  - 'abc' + 'def'
-
-```js
-if (true) {
-  let a = 10;
-  if (true) {
-    const a = 20;
-    console.log(a);
-  }
-  console.log(a);
-}
-console.log(a);
-
-// 호이스팅이 된다면...
-//a: undefined
-
-// 호이스팅이 안된다면...
-//a: 10
-```
-
-- TDZ : Temporal Dead Zone (임시사각지대)
-
-  - let 또는 const로 변수를 선언한 위치에 오기 전까지는 이 변수를 호출할 수 없다.
-  - 그 영역을 TDZ라고 한다.
-
-- 호이스팅?
-  - var : 변수명만 위로 끌어올리고 / undefined를 할당한다.
-  - let, const : 변수명만 위로 끌어올리고 / 끝. 값 할당x
-  - var, let, const 다 호이스팅 한다.
-
-### 3) this ?
+- this가 가리키는 건 그때그때 다르다.
 
 ```js
 var value = 0;
@@ -192,7 +173,7 @@ var obj = {
   setValue: function () {
     this.value = 2; // this: obj
     (function () {
-      this.value = 3; //this: window / 그냥 단순 함수를 실행한 것일 뿐 / 전역 value = 3
+      this.value = 3; //this: window(브라우저) / 그냥 단순 함수를 실행한 것일 뿐 / 전역 value = 3
     })();
   },
 };
@@ -202,7 +183,9 @@ console.log(obj.value); // 2
 // console.log(global.value); // node 환경에서 this가 가리키는 객체
 ```
 
-왜 다르게 나올까?
+</br>
+
+- 위의 문제를 해결하기 위한 방법 1 : `this를 변수에 할당`
 
 ```js
 var value = 0;
@@ -221,6 +204,11 @@ console.log(value); // 0
 console.log(obj.value); // 3
 ```
 
+</br>
+
+- 위의 문제를 해결하기 위한 방법 2 : `call(this)`
+- 함수를 실행하기 전에 미리 this를 정해서 넘겨줌
+
 ```js
 var value = 0;
 var obj = {
@@ -236,6 +224,12 @@ obj.setValue();
 console.log(value); // 0
 console.log(obj.value); // 3
 ```
+
+</br>
+
+- 위의 문제를 해결하기 위한 방법 3 : `블록 스코프 { }`
+- 블록 스코프의 this는 상위 스코프의 this를 그대로 쓴다.
+- 블록 스코프는 this 바인딩을 하지 않는다.
 
 ```js
 let value = 0;
@@ -253,67 +247,10 @@ console.log(value); // 0
 console.log(obj.value); // 3
 ```
 
-- 블록 스코프의 this는 바로 밖의 this를 그대로 쓴다.
-- this 바인딩을 하지 않는다.
+<br><br>
 
-### 4) 모든 `문` 형태에 적용.
+---
 
-```js
-var sum = 0;
-for (let i = 1; i <= 10; i++) {
-  sum += i;
-}
-console.log(sum); // 55
-console.log(i); // ReferenceError: i is not defined
-```
+### **Reference**
 
-- for문은 예외로 () 안에 선언한 내용이 {} 에 갖힌다.
-- for문의 본래 취지를 위해서.
-
-```js
-{
-  let a = 2;
-  if (a > 1) {
-    let b = a * 3;
-    console.log(b); // ReferenceError: b is not defined
-  } else {
-    let b = a / 3;
-    console.log(b);
-  }
-  console.log(b); // ReferenceError: b is not defined
-}
-console.log(a); // ReferenceError: a is not defined
-```
-
-```js
-if (Math.random() < 0.5) {
-  let j = 0;
-  console.log(j); // 0
-} else {
-  let j = 1;
-  console.log(j); // 1
-}
-console.log(j); // ReferenceError: j is not defined
-```
-
-```js
-let a = Math.ceil(Math.random() * 3);
-switch (a) {
-  case 1: {
-    let b = 10;
-    console.log(a + b);
-    break;
-  }
-  case 2: {
-    let b = 20;
-    console.log(a + b);
-    break;
-  }
-  case 3: {
-    let b = 30;
-    console.log(a + b);
-    break;
-  }
-}
-console.log(a, b);
-```
+- [Javascript ES6+ 제대로 알아보기 - 초급](https://www.inflearn.com/course/ecmascript-6-flow/)
