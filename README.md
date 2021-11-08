@@ -23,14 +23,14 @@
 - [미션 1: 다각형 넓이 구하기](mission/mission_01_getArea.js)
 - [미션 2-1: 진수 변환기](mission/mission_02_1_playNotation.js)
 - [미션 2-2: 배열 다루기](mission/mission_02_2_playArray.js)
-- [미션 2-3: 객체 다루기](mission/mission_02_2_playObject.js)
+- [미션 2-3: 객체 다루기](mission/mission_02_3_playObject.js)
 - [미션 3: 해시맵 구현](mission/mission_03_hash.js)
 
 <br>
 
 ## **Study Notes**
 
-- [Block scope, hoisting, this](note/01_block-scope_hoisting,%20this.md)
+- [Block scope, hoisting(TDZ), this](note/01_block-scope_hoisting,%20this.md)
 - [반복문 내에서의 함수 실행과 상수](note/02_function_in_loops.md)
 - [Deep Freeze, Deep Copy, immutuble, 깊은 복사, 얕은 복사](note/03_deep-copy_deep-freezing.md)
 - [ForEach, Map, Reduce](note/04_foreach_map_reduce.md)
@@ -42,11 +42,13 @@
 
 - 해시맵
 - 프로토타입 객체
-- 객체 탐색 : for_in, Object.keys(), Object.values(), entries() 와 같은 메서드, Object.keys()와 배열메서드(forEach)로 순회 하는 방법 등 (미션 2-2-5)
-- set & map, 어떻게 사용? object/array 차이?, 언제쓰지? (미션 2-2-7)
-- higher order functions은 어떻게 메서드 체이닝이 가능할까?
-- JavaScript 객체를 iteration하고 객체의 속성에 접근해서 추가/변경할 수 있다.
-- reduce 메서드 직접 만들기: 스코프&클로저 (미션 2-2-6)
+- 객체 관련
+  - 객체 탐색 : for_in, Object.keys(), Object.values(), entries() 와 같은 메서드, Object.keys()와 배열메서드(forEach)로 순회 하는 방법 등 (미션 2-2-5)
+  - set & map, 어떻게 사용? object/array 차이?, 언제쓰지? (미션 2-2-7)
+  - higher order functions은 어떻게 메서드 체이닝이 가능할까?
+  - JavaScript 객체를 iteration하고 객체의 속성에 접근해서 추가/변경할 수 있다.
+- 배열 관련
+  - reduce 메서드 직접 만들기: 스코프&클로저 (미션 2-2-6)
 
 ---
 
@@ -56,6 +58,8 @@
 - NodeJS 의 module 방식의 프로그래밍에 대해서 공부해보자.
 - deep copy : 재귀, lodash, JSON (노트3에 정리)
 - ?? 연산자
+- js파일에서 다른 js파일 가져오는 로직
+- 재귀
 
 <br>
 
