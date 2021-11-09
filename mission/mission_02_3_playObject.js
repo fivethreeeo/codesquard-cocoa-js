@@ -19,8 +19,8 @@
 
 'use-strict';
 
-const { missionData1 } = require('./data/missionData1');
-const { missionData2 } = require('./data/missionData2');
+const { missionData1 } = require('./data/missionData1'); // Q1 데이터
+const { missionData2 } = require('./data/missionData2'); // Q2 데이터
 
 // **** Q1. 숫자타입으로만 구성된 요소를 뽑아 배열만들기 ****
 //
