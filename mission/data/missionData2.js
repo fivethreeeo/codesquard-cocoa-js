@@ -1,4 +1,4 @@
-[
+const missionData2 = [
   {
     id: 1,
     name: 'Yong',
@@ -91,3 +91,4 @@
     ],
   },
 ];
+module.exports = { missionData2 };

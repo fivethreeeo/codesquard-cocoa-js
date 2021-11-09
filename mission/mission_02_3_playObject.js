@@ -19,38 +19,68 @@
 
 'use-strict';
 
-// **** Q1. 숫자타입으로만 구성된 요소를 뽑아 배열만들기 ****
-
-//  1) 객체를 순환 -> value가 숫자타입이면 -> key를 result배열에 추가
-//  2) value가 객체이면 -> 프로퍼티 짝으로 이루어진 배열을 만듬
-//  3) 배열에서 1번 인덱스 값이 숫자타입이면 0번 인덱스 값을 result배열에 추가
-
 const { missionData1 } = require('./data/missionData1');
+const { missionData2 } = require('./data/missionData2');
 
-function getNumberTypekeys(data) {
-  const result = [];
+// **** Q1. 숫자타입으로만 구성된 요소를 뽑아 배열만들기 ****
+//
+//  1) 객체를 순환
+//          -> value가 숫자타입이면 -> key를 numberValue 배열에 추가
+//          -> value가 객체타입이면 -> 1)함수를 다시 호출(재귀)
+//          -> value가 숫자,객체가 아니면  -> 종료..
+//  2) 결과 출력
 
-  for (let key in data) {
-    if (typeof data[key] === 'number') {
-      result.push(key);
-    } else if (typeof data[key] === 'object') {
-      const entries = Object.entries(data[key]);
-      entries.forEach((v, i) => {
-        typeof v[1] === 'number' && result.push(v[0]);
-      });
+function getNumberElements(data) {
+  const numberValue = [];
+
+  // 객체 순회
+  function iterateObj(obj) {
+    for (let key in obj) {
+      const value = obj[key];
+
+      // value가 숫자이면 key를 배열에 푸시
+      if (typeof value === 'number') numberValue.push(key);
+
+      // value가 객체이면 다시 함수 호출 (재귀)
+      const objectToString = Object.prototype.toString.call(value);
+      if (objectToString === '[object Object]') iterateObj(value);
     }
   }
-  console.log(`Q4. 객체에서 숫자타입 구성요소 뽑아 만든 배열: `, result);
+  iterateObj(data);
+
+  console.log(`Q1. 객체에서 숫자타입 구성요소 뽑아 만든 배열: `, numberValue);
 }
 
-// **** Q2. type이 sk인, name으로 구성된 배열만 출력해본다. ****
-const { missionData2 } = require('./data/missionData2');
+// **** Q2. type이 sk인, name으로 구성된 배열만들기 ****
+//
+//  1) 최상단 배열의 내부 객체를 순회 (가장 상위 객체 1)
+//          -> type: 'sk' 이면 -> name을 nameValue 배열에 추가
+//          -> childnode 배열의 길이가 0 보다 클 때 -> 1)함수를 다시 호출(재귀))
+//  2) 결과 출력
+
 function getNameWithTypeSk(data) {
-  console.log(data);
+  const nameValue = [];
+
+  // 배열 순회
+  function iterateArr(arr) {
+    arr.forEach((obj) => {
+      const { type, name, childnode } = obj;
+
+      //type: 'sk' 이면 -> name을 nameValue 배열에 추가
+      if (type === 'sk') nameValue.push(name);
+
+      //childnode 배열의 길이가 0 보다 클 때 -> 1)함수를 다시 호출(재귀)
+      if (childnode.length > 0) iterateArr(childnode);
+    });
+  }
+  iterateArr(data);
+
+  console.log(`Q2. type이 sk인, name으로 구성된 배열: `, nameValue);
 }
 
 // testCase : 테스트
 function testCase() {
-  getNumberTypekeys(missionData1);
+  getNumberElements(missionData1);
+  getNameWithTypeSk(missionData2);
 }
 testCase();
