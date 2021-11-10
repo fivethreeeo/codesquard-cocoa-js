@@ -18,6 +18,16 @@
     - size() 전체 아이템 개수를 리턴한다.
     - clear() 전체 맵을 초기화한다.
 
+  (7, 'Carmelo Anthony');
+  (1, 'Trevor Ariza');
+  (9, 'Kent Bazemore');
+  (20, 'Avery Bradley');
+  (2, 'Wayne Ellington');
+  (39, 'Dwight Howard');
+  (6, 'LeBron James');
+  (10, 'DeAndre Jordan');
+  (11, 'Malik Monk');
+
 ==========================================================
 */
 
@@ -110,32 +120,25 @@ class hashMap {
   }
 }
 
-const rosterLakers = new hashMap(10);
+function testCase() {
+  const rosterLakers = new hashMap(10); // hashMap length: 10
 
-/*
   rosterLakers.put(7, 'Carmelo Anthony');
-  rosterLakers.put(1, 'Trevor Ariza');
-  rosterLakers.put(9, 'Kent Bazemore');
-  rosterLakers.put(20, 'Avery Bradley');
-  rosterLakers.put(2, 'Wayne Ellington');
-  rosterLakers.put(39, 'Dwight Howard');
-  rosterLakers.put(6, 'LeBron James');
   rosterLakers.put(10, 'DeAndre Jordan');
   rosterLakers.put(11, 'Malik Monk');
-*/
-rosterLakers.put(7, 'Carmelo Anthony');
-rosterLakers.remove(7, 'Carmelo Anthony');
-rosterLakers.put(10, 'DeAndre Jordan');
-rosterLakers.put(11, 'Malik Monk');
-rosterLakers.put(3, 'Anthony Davis');
-console.log(rosterLakers.hashTable);
+  rosterLakers.put(3, 'Anthony Davis');
+  rosterLakers.remove(7, 'Carmelo Anthony');
 
-console.log(rosterLakers.containKey(7));
-console.log(rosterLakers.containKey(3));
+  console.log(rosterLakers.hashTable);
 
-console.log(rosterLakers.get(11));
-console.log(rosterLakers.keys());
+  console.log(rosterLakers.containKey(7)); // false
+  console.log(rosterLakers.containKey(3)); // true
 
-console.log(rosterLakers.isEmpty());
-console.log(rosterLakers.size());
-console.log(rosterLakers.clear());
+  console.log(rosterLakers.get(11)); // Malik Monk
+  console.log(rosterLakers.keys()); // [ 10, 11, 3 ]
+
+  console.log(rosterLakers.isEmpty()); // false
+  console.log(rosterLakers.size()); // 3
+  console.log(rosterLakers.clear()); // ['-', '-',...]
+}
+testCase();
