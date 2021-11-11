@@ -19,9 +19,6 @@
 
 'use-strict';
 
-const { missionData1 } = require('./data/missionData1'); // Q1 데이터
-const { missionData2 } = require('./data/missionData2'); // Q2 데이터
-
 // **** Q1. 숫자타입으로만 구성된 요소를 뽑아 배열만들기 ****
 //
 //  1) 객체를 순환
@@ -29,6 +26,8 @@ const { missionData2 } = require('./data/missionData2'); // Q2 데이터
 //          -> value가 객체타입이면 -> 1)함수를 다시 호출(재귀)
 //          -> value가 숫자,객체가 아니면  -> 종료..
 //  2) 결과 출력
+
+const { missionData1 } = require('./data/missionData1'); // Q1 데이터
 
 function getNumberElements(data) {
   const numberValue = [];
@@ -57,6 +56,8 @@ function getNumberElements(data) {
 //          -> type: 'sk' 이면 -> name을 nameValue 배열에 추가
 //          -> childnode 배열의 길이가 0 보다 클 때 -> 1)함수를 다시 호출(재귀))
 //  2) 결과 출력
+
+const { missionData2 } = require('./data/missionData2'); // Q2 데이터
 
 function getNameWithTypeSk(data) {
   const nameValue = [];
