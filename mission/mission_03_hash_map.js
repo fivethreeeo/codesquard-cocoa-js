@@ -1,25 +1,14 @@
 /*
-
-  ** 구현 상황 **
-
-  - [o] put(String key, String value) 키-값을 추가한다.
+  - put(String key, String value) 키-값을 추가한다.
       - 해시 값 중복 시 체이닝(Linked List)
-
-  - [o] remove(String key) 해당 키에 있는 값을 삭제한다.
-
-  - [o] containsKey(String) 해당 키가 존재하는지 판단해서 Bool 결과를 리턴한다.
-
-  - [o] get(String) 해당 키와 매치되는 값을 찾아서 리턴한다.
-
-  - [o] isEmpty() 비어있는 맵인지 Bool 결과를 리턴한다.
-
-  - [o] keys() 전체 키 목록을 [String] 배열로 리턴한다.
-
-  - [o] replace(String key, String value) 키-값으로 기존 값을 대체한다.
-
-  - [o] size() 전체 아이템 개수를 리턴한다.
-
-  - [o] clear() 전체 맵을 초기화한다.
+  - remove(String key) 해당 키에 있는 값을 삭제한다.
+  - containsKey(String) 해당 키가 존재하는지 판단해서 Bool 결과를 리턴한다.
+  - get(String) 해당 키와 매치되는 값을 찾아서 리턴한다.
+  - isEmpty() 비어있는 맵인지 Bool 결과를 리턴한다.
+  - keys() 전체 키 목록을 [String] 배열로 리턴한다.
+  - replace(String key, String value) 키-값으로 기존 값을 대체한다.
+  - size() 전체 아이템 개수를 리턴한다.
+  - clear() 전체 맵을 초기화한다.
 */
 
 'use-strict';
@@ -298,4 +287,5 @@ function testCase() {
   ]
   */
 }
+
 testCase();
