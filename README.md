@@ -22,27 +22,7 @@
 
 ## **Daily**
 
+- Week 2
+  - [`Day_14`](daily/day_14.md)
 - Week 3
-  - `DAY15`
-  - [`Day_16`](sdfsdf)
-  - `DAY17`
-  - `DAY18`
-  - `DAY19`
-  - `DAY20`
-  - `DAY21`
-- Week 4
-  - `DAY22`
-  - `DAY23`
-  - `DAY24`
-  - `DAY25`
-  - `DAY26`
-  - `DAY27`
-  - `DAY28`
-- Week 5
-  - `DAY29`
-  - `DAY30`
-  - `DAY31`
-  - `DAY32`
-  - `DAY33`
-  - `DAY34`
-  - `DAY35`
+  - [`Day_15`](daily/day_15.md)
