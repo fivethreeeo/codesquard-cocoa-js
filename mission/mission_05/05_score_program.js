@@ -12,7 +12,7 @@
 
 */
 
-const scores =
+const scoresInput =
   'math, 89.23, 82.03, 71.56, 78.82, 85.05, 84.44, 67.53, 71.7, 77.97, 73.77, 84.25, 67.01, 73.78, 64.19, 89.89, 90.32, 73.21, 75.35, 83.22, 74.01';
 
 // 1. readline으로 scores 입력 받음
@@ -31,7 +31,17 @@ const scores =
 //   })
 //   .on('close', () => process.exit());
 
-// 2. scores 를 과목:점수 형태의 객체로 할당.
+// 2. scoresInput 를 '과목': [점수] 를 갖는 객체로 만듬.
+const scores = {};
+
+function enterScores(userInput) {
+  const split = userInput.split(', ');
+  const subjectName = split.splice(0, 1).toString();
+  scores[subjectName] = split;
+}
+
+enterScores(scoresInput);
+console.log(scores);
 
 // 3. getMean() -> 평균 구하기
 function getMean() {}
