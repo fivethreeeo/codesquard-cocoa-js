@@ -17,6 +17,7 @@
   - [2-2-6. reduce 만들기]() [Not Started]
 - [미션 3: 해시맵 구현](mission/mission_03/03_hash_map.js)
 - [미션 4: 괄호문법 검사기]() [Not Started]
+- [미션 5: 성적 관리 프로그램](mission/mission_05/05_score_program.js) [In Progress]
 
 <br>
 
