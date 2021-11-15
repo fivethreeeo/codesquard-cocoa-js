@@ -25,3 +25,4 @@
 
 - Week 3
   - [`Day_15`](daily/day_15.md)
+  - [`Day_16`](daily/day_16.md)
