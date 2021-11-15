@@ -27,6 +27,7 @@ class ScoreProgram {
     this.scoreSet = {};
   }
 
+  // userInput(과목,점수)을 받아 scoreSet에 추가하기
   enterScore(input) {
     const split = input.split(', ');
     const subjectName = split.splice(0, 1);
@@ -47,15 +48,28 @@ class ScoreProgram {
     return mean;
   }
 
+  // 편차합 테스트 -> 편차합 = 0 인지
+  isDeviationSum0(scores, mean) {
+    const deviation = scores
+      .map((score) => score - mean)
+      .reduce((a, c) => a + c);
+
+    return deviation ? true : false;
+  }
+
   // 과목 점수 표준편차 구하기
   getStandardDeviation(subject) {
     const count = this.getCount(subject);
     const mean = this.getMean(subject);
+
+    console.log(this.isDeviationSum0(this.scoreSet[subject], mean)); //편차합 = 0 ?
+
     const meanSquare = // 평균제곱
       this.scoreSet[subject].reduce(
         (sum, score) => (score - mean) ** 2 + sum,
         0
       ) / count;
+
     const standardDeviation = Math.sqrt(meanSquare);
 
     return standardDeviation;
