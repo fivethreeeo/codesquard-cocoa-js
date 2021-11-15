@@ -77,17 +77,13 @@ class ScoreProgram {
 }
 
 function testCase() {
-  const scoreSet = {};
-  enterScores1(userInput1, scoreSet);
-  enterScores1(userInput2, scoreSet);
-  console.log(scoreSet);
+  const goScore = new ScoreProgram();
+  goScore.enterScore(userInput1);
+  goScore.enterScore(userInput2);
+  console.log(goScore.getMean('math'));
+  console.log(goScore.getStandardDeviation('math'));
+  console.log(goScore.getMean('physics'));
+  console.log(goScore.getStandardDeviation('physics'));
 }
 
-const goScore = new ScoreProgram();
-goScore.enterScore(userInput1);
-goScore.enterScore(userInput2);
-console.log(goScore.scoreSet);
-console.log(goScore.getMean('math'));
-console.log(goScore.getStandardDeviation('math'));
-console.log(goScore.getMean('physics'));
-console.log(goScore.getStandardDeviation('physics'));
+testCase();
