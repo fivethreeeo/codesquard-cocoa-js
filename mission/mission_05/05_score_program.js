@@ -6,13 +6,13 @@
     - [o] 표쥰편차 구하기
     - [o] 함수 재사용
     - [o] 객체 단위 프로그램
-    - [x] 부동소수점 오류 해결 (2)
+    - [x] 부동소수점 오류 해결
     - [x] 70-80점 사이의 비율 구하기
 
   - 문제 2
-    - [x] 비공기 사용자 입력 (1)
+    - [x] 비동기 사용자 입력
     - [o] 과목별로 출력
-    - [x] 퀵소트로 점수 정렬 (3)
+    - [x] 퀵소트로 점수 정렬
 
   - 표준편차 공식
     편차 = 개별 값 - 평균 값
@@ -86,9 +86,10 @@ class ScoreProgram {
     const mean = this.getMean(subject);
     const scores = this.scoreSet[subject];
 
-    // 편차합 0이 아니면 특정 로직
+    // 편차합 0이 아니면 -> 부동소수점오류
     if (this.isDeviationSum0(scores, mean)) {
       console.log('편차합 0 아님');
+      // 오류를 개선해 평균 제곱을 구함
     } else {
       console.log('편차합 0');
     }
@@ -104,7 +105,7 @@ class ScoreProgram {
   }
 }
 
-function testCase() {
+function gogo() {
   const goScore = new ScoreProgram();
   goScore.enterScore(userInput1);
   goScore.enterScore(userInput2);
@@ -115,4 +116,4 @@ function testCase() {
   console.log(goScore.getStandardDeviation('physics'));
 }
 
-testCase();
+gogo();
