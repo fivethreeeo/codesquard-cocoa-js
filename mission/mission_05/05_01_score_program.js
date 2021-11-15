@@ -54,7 +54,7 @@ class ScoreProgram {
     return mean;
   }
 
-  // 편차합 테스트 -> 편차합 = 0 인지
+  // 편차합 테스트 -> 편차합이 0 인지
   isDeviationSum0(scores, mean) {
     const deviation = scores
       .map((score) => score - mean)
@@ -67,15 +67,20 @@ class ScoreProgram {
   getStandardDeviation(subject) {
     const count = this.getCount(subject);
     const mean = this.getMean(subject);
+    const scores = this.scoreSet[subject];
 
-    console.log(this.isDeviationSum0(this.scoreSet[subject], mean)); //편차합 = 0 ?
+    // 편차합 0이 아니면 특정 로직
+    if (this.isDeviationSum0(scores, mean)) {
+      console.log('편차합 0 아님');
+    } else {
+      console.log('편차합 0');
+    }
 
-    const meanSquare = // 평균제곱
-      this.scoreSet[subject].reduce(
-        (sum, score) => (score - mean) ** 2 + sum,
-        0
-      ) / count;
+    // 평균 제곱 = 제곱합의 평균
+    const meanSquare =
+      scores.reduce((sum, score) => (score - mean) ** 2 + sum, 0) / count;
 
+    // 표준 편차
     const standardDeviation = Math.sqrt(meanSquare);
 
     return standardDeviation;
@@ -86,6 +91,7 @@ function testCase() {
   const goScore = new ScoreProgram();
   goScore.enterScore(userInput1);
   goScore.enterScore(userInput2);
+  console.log(goScore.scoreSet);
   console.log(goScore.getMean('math'));
   console.log(goScore.getStandardDeviation('math'));
   console.log(goScore.getMean('physics'));
