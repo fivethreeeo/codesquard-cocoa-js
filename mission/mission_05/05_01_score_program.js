@@ -33,6 +33,23 @@ class ScoreProgram {
     this.scoreSet = {};
   }
 
+  // node.js로 과목,점수 입력 받기
+  enterScoreNode() {
+    const readline = require('readline');
+    const std = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
+    });
+
+    std
+      .on('line', (line) => {
+        console.log('입력됐나');
+        console.log(line);
+        std.close();
+      })
+      .on('close', () => process.exit());
+  }
+
   // userInput(과목,점수)을 받아 scoreSet에 추가하기
   enterScore(input) {
     const split = input.split(', ');
