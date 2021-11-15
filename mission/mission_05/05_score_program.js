@@ -1,18 +1,19 @@
 'use strict';
 
 /*
-  - 문제 1
+  Check List
+
     - [o] 평균 구하기
     - [o] 표쥰편차 구하기
     - [o] 함수 재사용
     - [o] 객체 단위 프로그램
-    - [x] 부동소수점 오류 해결
     - [x] 70-80점 사이의 비율 구하기
 
-  - 문제 2
     - [x] 비동기 사용자 입력
     - [o] 과목별로 출력
-    - [x] 퀵소트로 점수 정렬
+    - [o] 퀵소트로 점수 정렬
+      - 05_quick_sort.js에 퀵소트 구현
+      - 여기선 sort() 메서드 사용 (실제로 퀵소트 알고리즘으로 동작)
 
   - 표준편차 공식
     편차 = 개별 값 - 평균 값
@@ -27,13 +28,13 @@ const userInput1 =
 const userInput2 =
   'physics, 80, 90, 60, 70, 50, 50, 80, 70, 70, 70, 80, 60, 70, 60, 80, 90, 70, 70, 80, 70';
 
-// 점수 계산 프로그램
+// 클래스 : 점수 계산 프로그램
 class ScoreProgram {
   constructor() {
     this.scoreSet = {};
   }
 
-  // node.js로 과목,점수 입력 받기
+  // ** node.js로 userInput(과목,점수)을 받아 scoreSet에 추가하기
   enterScoreNode() {
     const readline = require('readline');
     const std = readline.createInterface({
@@ -43,56 +44,50 @@ class ScoreProgram {
 
     std
       .on('line', (line) => {
-        console.log('입력됐나');
         console.log(line);
         std.close();
       })
       .on('close', () => process.exit());
   }
 
-  // userInput(과목,점수)을 받아 scoreSet에 추가하기
+  // ** userInput(과목,점수)을 받아 scoreSet에 추가하기
   enterScore(input) {
     const split = input.split(', ');
     const subjectName = split.splice(0, 1);
     this.scoreSet[subjectName] = split.map((score) => Number(score));
   }
 
-  // 과목 점수 개수 구하기
+  // ** 편차합이 0인지 확인하기
+  isDeviationSum0(scores, mean) {
+    const deviationSum = scores
+      .map((score) => score - mean)
+      .reduce((a, c) => a + c);
+
+    if (!deviationSum) {
+      return true; // 0
+    }
+    return false; // 0 아님
+  }
+
+  // ** 과목 점수 개수 구하기
   getCount(subject) {
     return this.scoreSet[subject].length;
   }
 
-  // 과목 점수 평균 구하기
+  // ** 과목 점수 평균 구하기
   getMean(subject) {
     const count = this.getCount(subject);
     const totalScore = this.scoreSet[subject].reduce((sum, curr) => sum + curr);
-    const mean = totalScore / count;
+    const mean = (totalScore / count).toFixed(2);
 
     return mean;
   }
 
-  // 편차합 테스트 -> 편차합이 0 인지
-  isDeviationSum0(scores, mean) {
-    const deviation = scores
-      .map((score) => score - mean)
-      .reduce((a, c) => a + c);
-
-    return deviation ? true : false;
-  }
-
-  // 과목 점수 표준편차 구하기
+  // ** 과목 점수 표준편차 구하기
   getStandardDeviation(subject) {
     const count = this.getCount(subject);
     const mean = this.getMean(subject);
     const scores = this.scoreSet[subject];
-
-    // 편차합 0이 아니면 -> 부동소수점오류
-    if (this.isDeviationSum0(scores, mean)) {
-      console.log('편차합 0 아님');
-      // 오류를 개선해 평균 제곱을 구함
-    } else {
-      console.log('편차합 0');
-    }
 
     // 평균 제곱 = 제곱합의 평균
     const meanSquare =
@@ -103,6 +98,12 @@ class ScoreProgram {
 
     return standardDeviation;
   }
+
+  // ** 과목 점수 정렬하기(오름차순)
+  sortScore(subject) {
+    const result = this.scoreSet[subject].sort((a, b) => a - b);
+    return result;
+  }
 }
 
 function gogo() {
@@ -110,10 +111,12 @@ function gogo() {
   goScore.enterScore(userInput1);
   goScore.enterScore(userInput2);
   console.log(goScore.scoreSet);
-  console.log(goScore.getMean('math'));
-  console.log(goScore.getStandardDeviation('math'));
-  console.log(goScore.getMean('physics'));
-  console.log(goScore.getStandardDeviation('physics'));
+  console.log(`math 평균: ${goScore.getMean('math')}`);
+  console.log(`math 표준편차: ${goScore.getStandardDeviation('math')}`);
+  console.log(`math 정렬(오름차순): ${goScore.sortScore('math')}`);
+  console.log(`physics 평균: ${goScore.getMean('physics')}`);
+  console.log(`physics 표준편차: ${goScore.getStandardDeviation('physics')}`);
+  console.log(`physics 정렬(오름차순): ${goScore.sortScore('physics')}`);
 }
 
 gogo();
