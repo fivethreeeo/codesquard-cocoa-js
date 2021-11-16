@@ -10,9 +10,11 @@ function quickSort(arr, start = 0, end = arr.length - 1) {
   pivotIndex = dodo(arr, leftIndex, rightIndex, pivotIndex);
 
   // 재귀 -> 배열의 길이가 1이 될 때까지
+  // 기준의 왼쪽 부분: 처음부터 기준 - 1까지
   if (leftIndex < pivotIndex - 1) {
     quickSort(arr, leftIndex, pivotIndex - 1);
   }
+  // 기준의 오른쪽 영역: 기준 + 1부터 끝까지
   if (pivotIndex + 1 < rightIndex + 1) {
     quickSort(arr, pivotIndex + 1, rightIndex + 1);
   }

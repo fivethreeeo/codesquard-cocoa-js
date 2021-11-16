@@ -81,7 +81,9 @@ class ScoreProgram {
 
   // 점수 개수
   getCount(subject) {
-    return this.scoreSet[subject].length;
+    const count = this.scoreSet[subject].length;
+
+    return count;
   }
 
   // 평균
@@ -123,6 +125,7 @@ class ScoreProgram {
   // 오름차순 정렬
   sortScore(subject) {
     const result = this.scoreSet[subject].sort((a, b) => a - b);
+
     return result;
   }
 }
