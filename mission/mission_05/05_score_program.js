@@ -13,7 +13,7 @@
     - [o] 과목별로 출력
     - [o] 퀵소트로 점수 정렬
       - 05_quick_sort.js에 퀵소트 구현
-      - 여기선 sort() 메서드 사용 (실제로 퀵소트 알고리즘으로 동작)
+      - 여기선 sort() 메서드 사용
 
   - 표준편차 공식
     편차 = 개별 값 - 평균 값
@@ -36,35 +36,39 @@ class ScoreProgram {
 
   // 사용자 입력 추가
   enterScoreNode() {
-    const readline = require('readline');
-    const rl = readline.createInterface({
-      input: process.stdin,
-      output: process.stdout,
-    });
+    return new Promise((resolve) => {
+      const readline = require('readline');
+      const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+      });
 
-    // 입력 값 저장
-    const inputSet = [];
+      // 입력 값 저장
+      const inputSet = [];
 
-    console.log('과목명, 점수를 입력해주세요. -> math, 80, 90, 70, ...');
-    console.log('입력을 종료하시려면 "quit"를 입력해주세요.');
+      console.log('과목명, 점수를 입력해주세요. -> math, 80, 90, 70, ...');
+      console.log('입력을 종료하시려면 "quit"를 입력해주세요.');
 
-    rl.setPrompt('> ');
-    rl.prompt();
-    rl.on('line', function (line) {
-      switch (line) {
-        case 'quit':
-          console.log('입력을 완료했습니다.');
-          console.log(inputSet);
-          rl.close();
-        default:
-          console.log('입력 내용: ', line);
-          inputSet.push(`${line}`);
-          console.log(inputSet);
-          rl.prompt();
-      }
-    });
-    rl.on('close', function () {
-      process.exit();
+      rl.setPrompt('> ');
+      rl.prompt();
+      rl.on('line', function (line) {
+        switch (line) {
+          case 'quit':
+            console.log('입력을 완료했습니다.');
+            console.log(inputSet);
+            rl.close();
+          default:
+            console.log('입력 내용: ', line);
+            inputSet.push(`${line}`);
+            console.log(inputSet);
+            rl.prompt();
+        }
+      });
+      rl.on('close', function () {
+        process.exit();
+      });
+
+      resolve(inputSet);
     });
   }
 
