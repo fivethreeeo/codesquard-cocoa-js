@@ -28,53 +28,59 @@ const userInput1 =
 const userInput2 =
   'physics, 80, 90, 60, 70, 50, 50, 80, 70, 70, 70, 80, 60, 70, 60, 80, 90, 70, 70, 80, 70';
 
-// 클래스 : 점수 계산 프로그램
+// **** 점수 계산 프로그램 ****
 class ScoreProgram {
   constructor() {
     this.scoreSet = {};
   }
 
-  // ** node.js로 userInput(과목,점수)을 받아 scoreSet에 추가하기
+  // 사용자 입력 추가
   enterScoreNode() {
     const readline = require('readline');
-    const std = readline.createInterface({
+    const rl = readline.createInterface({
       input: process.stdin,
       output: process.stdout,
     });
 
-    std
-      .on('line', (line) => {
-        console.log(line);
-        std.close();
-      })
-      .on('close', () => process.exit());
+    // 입력 값 저장
+    const inputSet = [];
+
+    console.log('과목명, 점수를 입력해주세요. -> math, 80, 90, 70, ...');
+    console.log('입력을 종료하시려면 "quit"를 입력해주세요.');
+
+    rl.setPrompt('> ');
+    rl.prompt();
+    rl.on('line', function (line) {
+      switch (line) {
+        case 'quit':
+          console.log('입력을 완료했습니다.');
+          console.log(inputSet);
+          rl.close();
+        default:
+          console.log('입력 내용: ', line);
+          inputSet.push(`${line}`);
+          console.log(inputSet);
+          rl.prompt();
+      }
+    });
+    rl.on('close', function () {
+      process.exit();
+    });
   }
 
-  // ** userInput(과목,점수)을 받아 scoreSet에 추가하기
+  // 기존 데이터 추가
   enterScore(input) {
     const split = input.split(', ');
     const subjectName = split.splice(0, 1);
     this.scoreSet[subjectName] = split.map((score) => Number(score));
   }
 
-  // ** 편차합이 0인지 확인하기
-  isDeviationSum0(scores, mean) {
-    const deviationSum = scores
-      .map((score) => score - mean)
-      .reduce((a, c) => a + c);
-
-    if (!deviationSum) {
-      return true; // 0
-    }
-    return false; // 0 아님
-  }
-
-  // ** 과목 점수 개수 구하기
+  // 점수 개수
   getCount(subject) {
     return this.scoreSet[subject].length;
   }
 
-  // ** 과목 점수 평균 구하기
+  // 평균
   getMean(subject) {
     const count = this.getCount(subject);
     const totalScore = this.scoreSet[subject].reduce((sum, curr) => sum + curr);
@@ -83,23 +89,34 @@ class ScoreProgram {
     return mean;
   }
 
-  // ** 과목 점수 표준편차 구하기
-  getStandardDeviation(subject) {
-    const count = this.getCount(subject);
+  // 편차
+  getDeviation(subject) {
     const mean = this.getMean(subject);
     const scores = this.scoreSet[subject];
+    const deviation = scores.map((score) => (score - mean).toFixed(2));
 
-    // 평균 제곱 = 제곱합의 평균
-    const meanSquare =
-      scores.reduce((sum, score) => (score - mean) ** 2 + sum, 0) / count;
+    return deviation;
+  }
 
-    // 표준 편차
-    const standardDeviation = Math.sqrt(meanSquare);
+  // 분산(평균제곱)
+  getDispersion(subject) {
+    const count = this.getCount(subject);
+    const deviation = this.getDeviation(subject);
+    const disperson =
+      deviation.reduce((sum, deviation) => deviation ** 2 + sum, 0) / count;
+
+    return disperson;
+  }
+
+  // 표준편차
+  getStandardDeviation(subject) {
+    const disperson = this.getDispersion(subject);
+    const standardDeviation = Math.sqrt(disperson);
 
     return standardDeviation;
   }
 
-  // ** 과목 점수 정렬하기(오름차순)
+  // 오름차순 정렬
   sortScore(subject) {
     const result = this.scoreSet[subject].sort((a, b) => a - b);
     return result;
@@ -108,15 +125,17 @@ class ScoreProgram {
 
 function gogo() {
   const goScore = new ScoreProgram();
+  goScore.enterScoreNode();
   goScore.enterScore(userInput1);
   goScore.enterScore(userInput2);
   console.log(goScore.scoreSet);
   console.log(`math 평균: ${goScore.getMean('math')}`);
   console.log(`math 표준편차: ${goScore.getStandardDeviation('math')}`);
-  console.log(`math 정렬(오름차순): ${goScore.sortScore('math')}`);
   console.log(`physics 평균: ${goScore.getMean('physics')}`);
   console.log(`physics 표준편차: ${goScore.getStandardDeviation('physics')}`);
-  console.log(`physics 정렬(오름차순): ${goScore.sortScore('physics')}`);
+  console.log(`math 정렬: ${goScore.sortScore('math')}`);
+  console.log(`physics 정렬: ${goScore.sortScore('physics')}`);
+  console.log(goScore.scoreSet);
 }
 
 gogo();
