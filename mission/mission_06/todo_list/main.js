@@ -81,7 +81,7 @@ class TodoManager {
 
     $checkBox.type = 'checkbox';
     $content.textContent = currentInput;
-    $deleteBtn.textContent = '할 일 삭제';
+    $deleteBtn.textContent = '지우기';
 
     $listItem.appendChild($checkBox);
     $listItem.appendChild($content);
