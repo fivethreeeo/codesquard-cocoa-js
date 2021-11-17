@@ -13,7 +13,11 @@ body {
 .header {
   margin: 24px 0 12px;
 }
+h2 {
+  color: #d24816;
+}
 .userName {
+  margin-top: 8px;
   font-size: 40px;
 }
 .today {
@@ -62,7 +66,7 @@ body {
 }
 .main .deleteBtn {
   display: inline-block;
-  color: #d24816;
+  color: tomato;
   font-size: 14px;
   padding: 0 10px;
 }
