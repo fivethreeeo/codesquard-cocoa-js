@@ -1,0 +1,5 @@
+/* @import url(reset.css); */
+
+.listItem.checked {
+  text-decoration: line-through;
+}
