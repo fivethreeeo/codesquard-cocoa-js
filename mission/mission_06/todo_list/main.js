@@ -76,6 +76,7 @@ class TodoManager {
 
     $listItem.className = 'listItem';
     $input.className = 'checkBox';
+    $checkBox.className = 'checkBox';
     $content.className = 'content';
     $deleteBtn.className = 'deleteBtn';
 
