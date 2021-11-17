@@ -22,13 +22,13 @@ class TodoManager {
 
   printToday() {
     const today = new Date();
-    const year = today.getFullYear();
+    const weekWords = ['일', '월', '화', '수', '목', '금', '토'];
     const month = ('0' + (today.getMonth() + 1)).slice(-2);
     const day = ('0' + today.getDate()).slice(-2);
-    const dateString = year + '-' + month + '-' + day;
-    const week = ['일', '월', '화', '수', '목', '금', '토'];
-    const dayOfWeek = week[new Date().getDay()];
-    this.$today.textContent = `${dateString} ${dayOfWeek}`;
+    const dayOfWeek = weekWords[new Date().getDay()];
+    const result = `${month}/${day} ${dayOfWeek}`;
+
+    this.$today.textContent = result;
   }
 
   onInput = (event) => {
