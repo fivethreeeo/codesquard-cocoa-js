@@ -22,11 +22,11 @@ class TodoManager {
 
   printToday() {
     const today = new Date();
-    const weekWords = ['일', '월', '화', '수', '목', '금', '토'];
+    const weekWords = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const month = ('0' + (today.getMonth() + 1)).slice(-2);
     const day = ('0' + today.getDate()).slice(-2);
     const dayOfWeek = weekWords[new Date().getDay()];
-    const result = `${month}/${day} ${dayOfWeek}`;
+    const result = `${month}/${day} - ${dayOfWeek}`;
 
     this.$today.textContent = result;
   }
