@@ -3,7 +3,6 @@
 class TodoManager {
   constructor(userName) {
     this.userName = userName;
-    //this.todoList = [];
 
     this.$userName = document.querySelector('.userName');
     this.$today = document.querySelector('.today');
