@@ -60,6 +60,7 @@ class TodoManager {
   deleteItem = (event) => {
     const listItem = event.target.parentNode;
     listItem.remove();
+    this.$todoInput.focus();
   };
 
   toggleChecked = (event) => {
