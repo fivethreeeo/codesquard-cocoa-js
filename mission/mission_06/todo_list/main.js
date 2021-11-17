@@ -39,18 +39,17 @@ class TodoManager {
   addListItem = (event) => {
     event.preventDefault();
 
-    if (!this.currentInput) {
+    if (this.isInputEmpty()) {
       alert('내용을 입력하세요');
       this.clearInput();
       return;
     }
 
-    //this.todoList.push(this.currentInput);
     this.$list.appendChild(this.makeListItem(this.currentInput));
     this.clearInput();
-
-    console.log(this.todoList);
   };
+
+  isInputEmpty = () => (this.currentInput ? false : true);
 
   clearInput() {
     this.currentInput = null;
