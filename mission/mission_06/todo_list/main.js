@@ -97,3 +97,4 @@ class TodoManager {
 const yellowTodo = new TodoManager('Yellow');
 yellowTodo.printName();
 yellowTodo.printToday();
+yellowTodo.clearInput();
