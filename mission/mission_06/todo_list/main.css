@@ -34,9 +34,30 @@ body {
 
 .main .list {
   margin-top: 20px;
+  padding: 0 24px 0 8px;
 }
-.main .listItem .checkBox {
+.main .listItem {
+  margin-bottom: 4px;
+  padding: 8px 0;
+}
+.main .listItem::after {
+  content: '';
+  clear: both;
+  display: block;
+}
+.main .checkBox {
   appearance: auto;
+  display: inline-block;
+}
+.main .content {
+  margin-left: 16px;
+  display: inline-block;
+}
+.main .deleteBtn {
+  display: inline-block;
+  color: #d24816;
+  font-size: 14px;
+  padding: 0 10px;
 }
 .listItem.checked {
   text-decoration: line-through;
