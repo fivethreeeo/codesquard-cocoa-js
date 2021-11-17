@@ -70,25 +70,24 @@ class TodoManager {
 
   makeListItem(currentInput) {
     const $listItem = document.createElement('li');
-    const $input = document.createElement('input');
+    const $checkBox = document.createElement('input');
     const $content = document.createElement('span');
     const $deleteBtn = document.createElement('button');
 
     $listItem.className = 'listItem';
-    $input.className = 'checkBox';
     $checkBox.className = 'checkBox';
     $content.className = 'content';
     $deleteBtn.className = 'deleteBtn';
 
-    $input.type = 'checkbox';
+    $checkBox.type = 'checkbox';
     $content.textContent = currentInput;
     $deleteBtn.textContent = '할 일 삭제';
 
-    $listItem.appendChild($input);
+    $listItem.appendChild($checkBox);
     $listItem.appendChild($content);
     $listItem.appendChild($deleteBtn);
 
-    $input.addEventListener('click', this.toggleChecked);
+    $checkBox.addEventListener('click', this.toggleChecked);
     $deleteBtn.addEventListener('click', this.deleteItem);
 
     return $listItem;
