@@ -12,9 +12,6 @@ class TodoManager {
     this.todoList = {};
     this.itemKeyNumber = 1; // start from 1
     this.currentInput = null;
-
-    $todoInput.addEventListener('input', this.onInput);
-    $addBtn.addEventListener('click', this.addListItem);
   }
 
   printName = () => ($userName.textContent = this.userName);
@@ -138,6 +135,8 @@ class TodoManager {
 }
 
 const yellowTodo = new TodoManager('Yellow');
+$todoInput.addEventListener('input', yellowTodo.onInput);
+$addBtn.addEventListener('click', yellowTodo.addListItem);
 yellowTodo.printName();
 yellowTodo.printToday();
 yellowTodo.clearInput();
