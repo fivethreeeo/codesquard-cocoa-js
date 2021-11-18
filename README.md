@@ -17,12 +17,15 @@
   - [2-2-6. reduce 만들기]() [Not Started]
 - [미션 3: 해시맵 구현](mission/mission_03/03_hash_map.js)
 - [미션 4: 괄호문법 검사기]() [Not Started]
-- [미션 5: 성적 관리 프로그램](mission/mission_05/05_score_program.js) [In Progress]
+- [미션 5: 성적 관리 프로그램](mission/mission_05/05_score_program.js) [Paused, 정규분포]
+- [미션 6: 웹 todo 개발](mission/mission_06/todo_list)
 
 <br>
 
-## **Daily**
+## **Note**
 
-- Week 3
-  - [`Day_15`](daily/day_15.md)
-  - [`Day_16`](daily/day_16.md)
+- [Block scope, hoisting(TDZ), this](note/01_block-scope_hoisting,%20this.md)
+- [반복문 내에서의 함수 실행과 상수](note/02_function_in_loops.md)
+- [Deep Freeze, Deep Copy, immutuble, 깊은 복사, 얕은 복사](note/03_deep-copy_deep-freezing.md)
+- [ForEach, Map, Reduce](note/04_foreach_map_reduce.md)
+- [Array APIs 연습](note/05_array_api.md)
