@@ -1,4 +1,4 @@
-[오늘의 투두 보러가기](https://mansaout.github.io/codesquard-cocoa-js/mission/mission_06/todo_list/)
+### [**오늘의 투두 보러가기**](https://mansaout.github.io/codesquard-cocoa-js/mission/mission_06/todo_list/)
 
 <br>
 
@@ -7,6 +7,7 @@
 - [x] 클래스를 사용해서 구현.
 - [ ] 클래스안에 메서드는 작게 유지
 - [ ] 투두 리스트를 인스턴스 내부 객체로 관리
+  - {item1 : timeStamp, content, status}
 
 <br>
 
