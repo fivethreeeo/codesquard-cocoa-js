@@ -39,8 +39,7 @@ class TodoManager {
     event.preventDefault();
 
     if (this.isInputEmpty()) {
-      alert('내용을 입력하세요');
-      this.clearInput();
+      this.alertMessage('내용을 입력해 주세요');
       return;
     }
 
@@ -54,6 +53,20 @@ class TodoManager {
   };
 
   isInputEmpty = () => (this.currentInput ? false : true);
+
+  alertMessage = (message) => {
+    alert(message);
+    this.clearInput();
+  };
+
+  addTodoList = (itemContent, itemKey) => {
+    this.todoList[`item${itemKey}`] = {
+      status: 'notYet',
+      content: itemContent,
+      timeStamp: new Date(),
+    };
+    this.itemKeyNumber++;
+  };
 
   clearInput = () => {
     this.currentInput = null;
