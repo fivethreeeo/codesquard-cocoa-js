@@ -24,7 +24,6 @@ h2 {
 .today {
   margin-top: 24px;
 }
-
 .inputForm {
   background: #e9ecef;
   border-radius: 4px;
@@ -43,7 +42,6 @@ h2 {
   border-radius: 4px;
   font-size: 14px;
 }
-
 .list {
   margin-top: 20px;
   padding: 0 24px 0 8px;
@@ -51,11 +49,6 @@ h2 {
 .listItem {
   margin-bottom: 4px;
   padding: 8px 0;
-}
-.listItem::after {
-  content: '';
-  clear: both;
-  display: block;
 }
 .checkBox {
   appearance: auto !important;
