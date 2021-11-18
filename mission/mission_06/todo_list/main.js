@@ -88,30 +88,6 @@ class TodoManager {
     $todoInput.focus();
   };
 
-  toggleStatus = (itemKey) => {
-    if (this.todoList[itemKey].status === 'notYet') {
-      this.todoList[itemKey].status = 'done';
-    } else if (this.todoList[itemKey].status === 'done') {
-      this.todoList[itemKey].status = 'notYet';
-    }
-  };
-  toggleChecked = (event) => {
-    const $listItem = event.target.parentNode;
-    const contentIndex = 1;
-    const $content = $listItem.children[contentIndex];
-    const itemClassName = $listItem.className.substring(9);
-
-    this.toggleStatus(itemClassName);
-    $content.classList.toggle('checked');
-  };
-
-  makeChild = (parent, ...child) => {
-    child.forEach((element) => {
-      parent.appendChild(element);
-    });
-    return parent;
-  };
-
   makeListItem(currentInput, itemKey) {
     const $listItem = document.createElement('li');
     const $checkBox = document.createElement('input');
@@ -134,6 +110,31 @@ class TodoManager {
 
     return $listItem;
   }
+
+  makeChild = (parent, ...child) => {
+    child.forEach((element) => {
+      parent.appendChild(element);
+    });
+    return parent;
+  };
+
+  toggleStatus = (itemKey) => {
+    if (this.todoList[itemKey].status === 'notYet') {
+      this.todoList[itemKey].status = 'done';
+    } else if (this.todoList[itemKey].status === 'done') {
+      this.todoList[itemKey].status = 'notYet';
+    }
+  };
+
+  toggleChecked = (event) => {
+    const $listItem = event.target.parentNode;
+    const contentIndex = 1;
+    const $content = $listItem.children[contentIndex];
+    const itemClassName = $listItem.className.substring(9);
+
+    this.toggleStatus(itemClassName);
+    $content.classList.toggle('checked');
+  };
 }
 
 const yellowTodo = new TodoManager('Yellow');
