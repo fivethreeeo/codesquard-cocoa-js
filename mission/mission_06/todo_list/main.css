@@ -25,17 +25,17 @@ h2 {
   margin-top: 24px;
 }
 
-.main .inputForm {
+.inputForm {
   background: #e9ecef;
   border-radius: 4px;
   padding: 12px 16px;
 }
-.main .inputForm input {
+.inputForm input {
   background: #e9ecef;
   width: 85%;
   border: none;
 }
-.main .inputForm .addBtn {
+.addBtn {
   background: #212529;
   width: 14%;
   height: 28px;
@@ -44,39 +44,35 @@ h2 {
   font-size: 14px;
 }
 
-.main .list {
+.list {
   margin-top: 20px;
   padding: 0 24px 0 8px;
 }
-.main .listItem {
+.listItem {
   margin-bottom: 4px;
   padding: 8px 0;
 }
-.main .listItem::after {
+.listItem::after {
   content: '';
   clear: both;
   display: block;
-}
-.main .checkBox {
-  appearance: auto;
-  display: inline-block;
-}
-.main .content {
-  font-size: 17px;
-  margin-left: 16px;
-  display: inline-block;
-}
-.main .deleteBtn {
-  display: inline-block;
-  color: tomato;
-  font-size: 14px;
-  padding: 0 10px;
 }
 .listItem.checked .content {
   text-decoration: line-through;
   color: #aaa;
 }
-
-.hiddenKey {
-  display: none;
+.checkBox {
+  appearance: auto !important;
+  display: inline-block;
+}
+.content {
+  font-size: 17px;
+  margin-left: 16px;
+  display: inline-block;
+}
+.deleteBtn {
+  display: inline-block;
+  color: tomato;
+  font-size: 14px;
+  padding: 0 10px;
 }
