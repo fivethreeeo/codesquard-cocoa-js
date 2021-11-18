@@ -10,9 +10,9 @@ class TodoManager {
   constructor(userName) {
     this.userName = userName;
     this.todoList = {};
-    this.itemKeyNumber = 1;
-
+    this.itemKeyNumber = 1; // start from 1
     this.currentInput = null;
+
     $todoInput.addEventListener('input', this.onInput);
     $addBtn.addEventListener('click', this.addListItem);
   }
@@ -91,6 +91,7 @@ class TodoManager {
     $checkBox.className = 'checkBox';
     $content.className = 'content';
     $deleteBtn.className = 'deleteBtn';
+
     this.makeChild($listItem, $checkBox, $content, $deleteBtn);
 
     $checkBox.type = 'checkbox';
