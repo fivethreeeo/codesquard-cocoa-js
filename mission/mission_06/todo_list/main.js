@@ -1,25 +1,25 @@
 'use-strict';
 
+const $userName = document.querySelector('.userName');
+const $today = document.querySelector('.today');
+const $todoInput = document.querySelector('.todoInput');
+const $addBtn = document.querySelector('.addBtn');
+const $list = document.querySelector('.list');
+
 class TodoManager {
   constructor(userName) {
     this.userName = userName;
-
-    this.$userName = document.querySelector('.userName');
-    this.$today = document.querySelector('.today');
-    this.$todoInput = document.querySelector('.todoInput');
-    this.$addBtn = document.querySelector('.addBtn');
-    this.$list = document.querySelector('.list');
+    this.todoList = {};
+    this.itemKeyNumber = 1;
 
     this.currentInput = null;
-    this.$todoInput.addEventListener('input', this.onInput);
-    this.$addBtn.addEventListener('click', this.addListItem);
+    $todoInput.addEventListener('input', this.onInput);
+    $addBtn.addEventListener('click', this.addListItem);
   }
 
-  printName() {
-    this.$userName.textContent = this.userName;
-  }
+  printName = () => ($userName.textContent = this.userName);
 
-  printToday() {
+  printToday = () => {
     const today = new Date();
     const weekWords = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const month = ('0' + (today.getMonth() + 1)).slice(-2);
@@ -27,8 +27,8 @@ class TodoManager {
     const dayOfWeek = weekWords[new Date().getDay()];
     const result = `${month}/${day} - ${dayOfWeek}`;
 
-    this.$today.textContent = result;
-  }
+    $today.textContent = result;
+  };
 
   onInput = (event) => {
     this.currentInput = event.target.value;
@@ -44,22 +44,29 @@ class TodoManager {
       return;
     }
 
-    this.$list.appendChild(this.makeListItem(this.currentInput));
+    const itemKey = this.itemKeyNumber;
+    $list.appendChild(this.makeListItem(this.currentInput, itemKey));
+    this.todoList[`item${itemKey}`] = {
+      content: this.currentInput,
+    };
+    this.itemKeyNumber++;
     this.clearInput();
   };
 
   isInputEmpty = () => (this.currentInput ? false : true);
 
-  clearInput() {
+  clearInput = () => {
     this.currentInput = null;
-    this.$todoInput.value = null;
-    this.$todoInput.focus();
-  }
+    $todoInput.value = null;
+    $todoInput.focus();
+  };
 
   deleteItem = (event) => {
     const listItem = event.target.parentNode;
+    const itemClassName = listItem.className.substring(9);
+    delete this.todoList[itemClassName];
     listItem.remove();
-    this.$todoInput.focus();
+    $todoInput.focus();
   };
 
   toggleChecked = (event) => {
@@ -67,24 +74,28 @@ class TodoManager {
     listItem.classList.toggle('checked');
   };
 
-  makeListItem(currentInput) {
+  makeChild = (parent, ...child) => {
+    child.forEach((element) => {
+      parent.appendChild(element);
+    });
+    return parent;
+  };
+
+  makeListItem(currentInput, itemKey) {
     const $listItem = document.createElement('li');
     const $checkBox = document.createElement('input');
     const $content = document.createElement('span');
     const $deleteBtn = document.createElement('button');
 
-    $listItem.className = 'listItem';
+    $listItem.className = `listItem item${itemKey}`;
     $checkBox.className = 'checkBox';
     $content.className = 'content';
     $deleteBtn.className = 'deleteBtn';
+    this.makeChild($listItem, $checkBox, $content, $deleteBtn);
 
     $checkBox.type = 'checkbox';
-    $content.textContent = currentInput;
     $deleteBtn.textContent = '지우기';
-
-    $listItem.appendChild($checkBox);
-    $listItem.appendChild($content);
-    $listItem.appendChild($deleteBtn);
+    $content.textContent = currentInput;
 
     $checkBox.addEventListener('click', this.toggleChecked);
     $deleteBtn.addEventListener('click', this.deleteItem);
