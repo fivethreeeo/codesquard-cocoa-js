@@ -57,10 +57,6 @@ h2 {
   clear: both;
   display: block;
 }
-.listItem.checked .content {
-  text-decoration: line-through;
-  color: #aaa;
-}
 .checkBox {
   appearance: auto !important;
   display: inline-block;
@@ -70,9 +66,13 @@ h2 {
   margin-left: 16px;
   display: inline-block;
 }
+.content.checked {
+  text-decoration: line-through;
+  color: #aaa;
+}
 .deleteBtn {
   display: inline-block;
-  color: tomato;
+  color: #aaa;
   font-size: 14px;
   padding: 0 10px;
 }
