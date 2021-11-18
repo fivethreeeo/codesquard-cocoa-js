@@ -43,6 +43,11 @@ class TodoManager {
       return;
     }
 
+    if (this.isFull()) {
+      this.alertMessage('할 일이 너무 많아요. 10개만 하자...');
+      return;
+    }
+
     const itemContent = this.currentInput;
     const itemKey = this.itemKeyNumber;
 
@@ -52,6 +57,8 @@ class TodoManager {
   };
 
   isInputEmpty = () => (this.currentInput ? false : true);
+
+  isFull = () => Object.keys(this.todoList).length > 9;
 
   alertMessage = (message) => {
     alert(message);
