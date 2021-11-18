@@ -43,12 +43,11 @@ class TodoManager {
       return;
     }
 
+    const itemContent = this.currentInput;
     const itemKey = this.itemKeyNumber;
-    $list.appendChild(this.makeListItem(this.currentInput, itemKey));
-    this.todoList[`item${itemKey}`] = {
-      content: this.currentInput,
-    };
-    this.itemKeyNumber++;
+
+    this.addTodoList(itemContent, itemKey);
+    $list.appendChild(this.makeListItem(itemContent, itemKey));
     this.clearInput();
   };
 
@@ -75,16 +74,28 @@ class TodoManager {
   };
 
   deleteItem = (event) => {
-    const listItem = event.target.parentNode;
-    const itemClassName = listItem.className.substring(9);
+    const $listItem = event.target.parentNode;
+    const itemClassName = $listItem.className.substring(9);
     delete this.todoList[itemClassName];
-    listItem.remove();
+    $listItem.remove();
     $todoInput.focus();
   };
 
+  toggleStatus = (itemKey) => {
+    if (this.todoList[itemKey].status === 'notYet') {
+      this.todoList[itemKey].status = 'done';
+    } else if (this.todoList[itemKey].status === 'done') {
+      this.todoList[itemKey].status = 'notYet';
+    }
+  };
   toggleChecked = (event) => {
-    const listItem = event.target.parentNode;
-    listItem.classList.toggle('checked');
+    const $listItem = event.target.parentNode;
+    const contentIndex = 1;
+    const $content = $listItem.children[contentIndex];
+    const itemClassName = $listItem.className.substring(9);
+
+    this.toggleStatus(itemClassName);
+    $content.classList.toggle('checked');
   };
 
   makeChild = (parent, ...child) => {
