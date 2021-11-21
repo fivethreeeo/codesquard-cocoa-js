@@ -4,6 +4,11 @@
 
 <br>
 
+- ### [**데일리 회고 🗓**](https://github.com/mansaout/TIL/tree/main/Daily)
+- ### [**알고리즘 풀이 저장소**](https://github.com/mansaout/TIL/tree/main/Algorithm)
+
+<br>
+
 ## **Mission**
 
 - [x] [미션 1. 다각형 넓이 구하기](mission/mission_01/01_get_area.js)
@@ -22,50 +27,10 @@
 
 <br>
 
-## **Algorithm**
+## **Note**
 
-- [풀이 저장소](https://github.com/mansaout/TIL/tree/main/Algorithm)
-
-<br>
-
-```
-todo
-- 1. 디버깅 학습(크롱 유튜브 강의)
-  - breakpoints란
-  - watch사용법
-  - call stack 의 의미
-  - Step over / Step into/ Step out
-- 2. 비동기 프로그래밍 학습
-  - 프로미스
-- 3. nodejs로 인풋 받는 법 학습
-- 4. 정규 표현식
-- 5. stack과 queue 차이점과 활용점을 안다
-  - https://lucas.codesquad.kr/cocoa-2021/course/%EC%BD%94%EC%BD%94%EC%95%84-JS/2%EC%A3%BC%EC%B0%A8(%EC%88%98)-(%EC%8A%A4%ED%83%9D%EA%B3%BC%ED%81%90)/stack---queue
-  - 무한중첩된 구조를 재귀와 스택자료구조를 활용해서 분석할 수 있다.
-- 6. 함수 호출 스택
-- 7. JavaScript map APIs
-  - Map collections에 접근하기 위해서, 아래와 같은 method를 제공한다.
-  - has, get, set, delete, clear, size(property)...
-- 8. JavaScript set & map 에 대해서 알아보고 정리해보자.
-  - 어떻게 사용하는것인가
-  - object/array와는 어떤 점이 다르지?
-  - 언제 유용하게 쓰일 수 있을까?
-  - higher order functions은 어떻게 메서드 체이닝이 가능할까? 그 이유를 알아보자.
-- 9. NodeJS 의 module 방식의 프로그래밍에 대해서 공부해보자.
-  - Modular programming 은 모듈방식으로 프로그램을 나누고, 이를 통해 복잡한 애플리케이션의 역할을 나눠서 문제를 해결한다. NodeJS에서도 이를 지원하다.
-  - require, exports !!
-  - 참고 : https://nodejs.org/api/modules.html
-  - 공식사이트의 튜터리얼을 따라해서 export 와 require를 사용해보자.
-
-- 네이버 계산기 만들어보기
-- 지뢰찾기 만들어보기
-- 인프런 코어자바스크립트 강의 (111분)
-- 인프런 es6 초급 (210분)
-- 인프런 es6 중급 (231분)
-- 인프런 es6 보너스 (146분)
-- 인프런 모던 자바스크립트 딥다이브 스터디
-- 모던 자바스크립트 튜토리얼 파트 1. 코어 자바스크립트
-- 모던 자바스크립트 튜토리얼 파트 2. 브라우저: 문서, 이벤트, 인터페이스
-- 모던 자바스크립트 튜토리얼 파트 3. 추가 주제
-
-```
+- [Block scope, hoisting(TDZ)](note/01_block-scope_hoisting,%20this.md)
+- [반복문 내에서의 함수 실행과 상수](note/02_function_in_loops.md)
+- [Deep Freeze, Deep Copy, immutuble, 깊은 복사, 얕은 복사](note/03_deep-copy_deep-freezing.md)
+- [ForEach, Map, Reduce](note/04_foreach_map_reduce.md)
+- [Array APIs 연습](note/05_array_api.md)
