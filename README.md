@@ -1,11 +1,10 @@
 # **cocoa-js**
 
-- **`(5weeks) 2021.11.1 ~ 2021.12.2`**
+**`(5weeks) 2021.11.1 ~ 2021.12.2`**
 
-<br>
+### [**데일리 회고 🗓**](https://github.com/mansaout/TIL/tree/main/Daily)
 
-- ### [**데일리 회고 🗓**](https://github.com/mansaout/TIL/tree/main/Daily)
-- ### [**알고리즘 풀이 저장소**](https://github.com/mansaout/TIL/tree/main/Algorithm)
+### [**알고리즘 풀이 저장소**](https://github.com/mansaout/TIL/tree/main/Algorithm)
 
 <br>
 
