@@ -1,6 +1,6 @@
 ##### 최초작성일 : 2021. 11. 8.<br><br>
 
-# Block Scope, Hoisting, this
+# Block Scope, Hoisting
 
 [Statement vs Expression](#statement-vs-expression)  
 [Scope, Function Scope, Block Scope 개념](#scope-function-scope-block-scope-개념)  
