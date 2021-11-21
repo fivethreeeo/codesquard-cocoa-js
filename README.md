@@ -12,7 +12,7 @@
 
 - [x] [미션 1. 다각형 넓이 구하기](mission/mission_01/01_get_area.js)
 - [x] [미션 2-1. 진수 변환기](mission/mission_02/02_1_notation.js)
-- 미션 2-2. 배열 다루기
+- [ ] 미션 2-2. 배열 다루기
   - [x] [2-2-1. 팩토리얼 함수 만들기](mission/mission_02/02_2_1_factorial.js)
   - [x] [2-2-2. 배열 거르기](mission/mission_02/02_2_2_array.js)
   - [x] [2-2-3. 평균 구하기](mission/mission_02/02_2_3_array.js)
