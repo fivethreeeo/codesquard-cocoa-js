@@ -1,11 +1,5 @@
 'use-strict';
 
-const $userName = document.querySelector('.userName');
-const $today = document.querySelector('.today');
-const $todoInput = document.querySelector('.todoInput');
-const $addBtn = document.querySelector('.addBtn');
-const $list = document.querySelector('.list');
-
 class TodoManager {
   constructor(userName) {
     this.userName = userName;
@@ -132,11 +126,21 @@ class TodoManager {
     this.toggleStatus(itemClassName);
     $content.classList.toggle('checked');
   };
+
+  init = () => {
+    $todoInput.addEventListener('input', this.onInput);
+    $addBtn.addEventListener('click', this.addListItem);
+    this.printName();
+    this.printToday();
+    this.clearInput();
+  };
 }
 
+const $userName = document.querySelector('.userName');
+const $today = document.querySelector('.today');
+const $todoInput = document.querySelector('.todoInput');
+const $addBtn = document.querySelector('.addBtn');
+const $list = document.querySelector('.list');
+
 const yellowTodo = new TodoManager('Yellow');
-$todoInput.addEventListener('input', yellowTodo.onInput);
-$addBtn.addEventListener('click', yellowTodo.addListItem);
-yellowTodo.printName();
-yellowTodo.printToday();
-yellowTodo.clearInput();
+yellowTodo.init();
