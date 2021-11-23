@@ -15,11 +15,12 @@ class TodoManager {
   };
 
   updateStatus = (itemKey) => {
-    if (this.todoList[itemKey].status === 'notYet') {
-      this.todoList[itemKey].status = 'done';
-    } else {
-      this.todoList[itemKey].status = 'notYet';
+    const item = this.todoList[itemKey];
+    if (item.status === 'notYet') {
+      item.status = 'done';
+      return;
     }
+    item.status = 'notYet';
   };
 
   deleteItem = (itemClassName) => {
