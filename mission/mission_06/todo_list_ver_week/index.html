@@ -5,33 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>todolist</title>
-    <!-- <link rel="stylesheet" href="src/css/main.css" /> -->
-    <script type="module" src="src/js/app.js"></script>
+    <link rel="stylesheet" href="src/css/main.css" />
+    <script defer type="module" src="src/js/app.js"></script>
   </head>
   <body>
     <div class="wrap">
       <div class="userName">{Yellow}</div>
 
       <div class="dateWrap">
-        <div class="desc">
-          <span class="yearMonth">{2021년 11월}</span>
-          <span class="weekOfMonth">{4}</span>주차
-          <span class="doneCount">{5}</span>개 완료
+        <div class="dateDesc">
+          <span class="year"></span><span class="text">년</span>
+          <span class="month"></span><span class="text">월</span>
+          <span class="weekOfMonth"></span><span class="text">주차</span>
+          <span class="text done">done :</span>
+          <span class="doneCount"></span>
         </div>
         <ul class="dateList"></ul>
       </div>
 
       <form action="" class="inputForm">
         <input
-          value="123123"
           class="todoInput"
           type="text"
           placeholder="할 일을 적어보세요."
         />
-        <button class="addBtn">추가하기</button>
+        <button class="addBtn">추가</button>
       </form>
 
-      <ul class="todoStorage"></ul>
+      <ul class="todoList"></ul>
     </div>
   </body>
 </html>

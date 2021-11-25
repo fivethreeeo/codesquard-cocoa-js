@@ -90,7 +90,7 @@ button {
 button:focus {
   outline: none;
 }
-input[type='checkbox'],
+/* input[type='checkbox'],
 input[type='text'],
 input[type='tel'],
 input[type='password'],
@@ -101,17 +101,12 @@ select {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-}
+} */
 input[type='text'],
 input[type='tel'],
 input[type='password'],
 textarea,
 select {
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
-  -ms-transition: all 0.2s ease-in-out;
-  -o-transition: all 0.2s ease-in-out;
-  transition: all 0.2s ease-in-out;
   outline: none;
 }
 textarea,

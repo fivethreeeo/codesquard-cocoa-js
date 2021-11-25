@@ -1,35 +1,40 @@
-function getYearMonth() {
-  const today = new Date();
-  const year = today.getFullYear();
-  const month = today.getMonth();
-  const yearMonth = `${year}년 ${month}월`;
-
-  return yearMonth;
+function stampTime() {
+  const stamp = new Date().getTime();
+  return stamp;
 }
 
-// 이번주 요일별 날짜 구하기
+function getFullDate(date = new Date()) {
+  const inputDate = new Date(date);
+  const fullDate = inputDate.toLocaleDateString('sv-SE');
+
+  return fullDate;
+}
+
+// 이번 주의 요일, 날짜 구하기
 function getDateOfWeek() {
   const today = new Date();
   const weekWords = ['월', '화', '수', '목', '금', '토', '일'];
   const week = [];
 
   weekWords.forEach((weekWord, index) => {
-    const date = new Date(
-      today.setDate(today.getDate() - today.getDay() + index + 1)
-    ).getDate();
+    const calculatedDate = today.setDate(
+      today.getDate() - today.getDay() + index + 1
+    );
+    const date = new Date(calculatedDate).getDate();
+    const fullDate = getFullDate(calculatedDate);
 
-    week.push([weekWord, date]);
+    week.push([weekWord, date, fullDate]);
   });
-
   return week;
 }
 
-// 이번 주가 월의 몇 번째 주인지 구하기
-function getWeekOfMonth() {
+// 이번 주가 몇 년 몇 월의 몇 번째 주인지 구하기
+function getDateDesc() {
   const inputDate = new Date();
 
   let year = inputDate.getFullYear();
   let month = inputDate.getMonth() + 1;
+  let date = inputDate.getDate();
 
   const weekNumberByThurFnc = (paramDate) => {
     const year = paramDate.getFullYear();
@@ -75,7 +80,7 @@ function getWeekOfMonth() {
     weekNo = 1;
   }
 
-  return weekNo;
+  return [year, month, date, weekNo];
 }
 
-export { getYearMonth, getDateOfWeek, getWeekOfMonth };
+export { stampTime, getFullDate, getDateOfWeek, getDateDesc };
