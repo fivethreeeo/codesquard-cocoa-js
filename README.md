@@ -2,10 +2,6 @@
 
 **`(5weeks) 2021.11.1 ~ 2021.12.2`**
 
-#### [**데일리 회고 🗓**](https://github.com/mansaout/TIL/tree/main/Daily)
-
-#### [**알고리즘 풀이 저장소**](https://github.com/mansaout/TIL/tree/main/Algorithm)
-
 <br>
 
 ## **Mission**
@@ -19,10 +15,13 @@
   - [x] [2-2-4. 배열 만들기](mission/mission_02/02_2_4_array.js)
   - [x] [2-2-5. 배열 결과 출력](mission/mission_02/02_2_5_array.js)
   - [ ] [2-2-6. reduce 만들기]()
-- [x] [미션 3: 해시맵 구현](mission/mission_03/03_hash_map.js)
-- [ ] [미션 4: 괄호문법 검사기]()
-- [x] [미션 5: 성적 관리 프로그램](mission/mission_05/05_score_program.js)
-- [x] [미션 6: 웹 todo 개발](mission/mission_06)
+- [x] [미션 3. 해시맵 구현](mission/mission_03/03_hash_map.js)
+- [ ] [미션 4. 괄호문법 검사기]()
+- [x] [미션 5. 성적 관리 프로그램](mission/mission_05/05_score_program.js)
+- [x] 미션 6. 웹 todo 개발
+  - [x] [6-1. Daily todo](mission/mission_06/todo_list_ver_today)
+  - [x] [6-2. Weekly todo](mission/mission_06/todo_list_ver_week)
+- [ ] [미션 7. 스마트 드롭다운 메뉴]()
 
 <br>
 
