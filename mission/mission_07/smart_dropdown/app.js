@@ -26,19 +26,24 @@ class rosterController {
   };
 
   cardHandler = () => {
-    rosterEl.addEventListener('mousemove', (event) => {
-      const countNode = event.target.parentNode.querySelector('.label');
-      let count = Number(countNode.textContent);
-      let timeoutId;
+    for (let i = 0; i < 8; i++) {
+      let card = rosterEl.querySelector(`.card_${i}`);
+      card.addEventListener('mousemove', this.addLikeCount);
+    }
+  };
 
-      if (!timeoutId) {
-        timeoutId = setTimeout(() => {
-          timeoutId = null;
-          count++;
-          countNode.textContent = count;
-        }, 500);
-      }
-    });
+  addLikeCount = (event) => {
+    const countNode = event.target.parentNode.querySelector('.label');
+    let count = Number(countNode.textContent);
+    let timeoutId;
+
+    if (!timeoutId) {
+      timeoutId = setTimeout(() => {
+        timeoutId = null;
+        count++;
+        countNode.textContent = count;
+      }, 500);
+    }
   };
 }
 
