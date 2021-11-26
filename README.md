@@ -21,7 +21,7 @@
 - [x] 미션 6. 웹 todo 개발
   - [x] [6-1. Daily todo](mission/mission_06/todo_list_ver_today)
   - [x] [6-2. Weekly todo](mission/mission_06/todo_list_ver_week)
-- [ ] [미션 7. 스마트 드롭다운 메뉴]()
+- [x] [미션 7. 스마트 드롭다운 메뉴](mission/mission_07/smart_dropdown)
 
 <br>
 
