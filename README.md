@@ -22,10 +22,10 @@
 - [ ] [미션 4. 괄호문법 검사기]()
 - [x] [미션 5. 성적 관리 프로그램](mission/mission_05/05_score_program.js)
 - [x] 미션 6. 웹 todo 개발
-  - [x] [6-1. Daily todo (DEMO](mission/mission_06/todo_list_ver_today)
+  - [x] [6-1. Daily todo (DEMO)](mission/mission_06/todo_list_ver_today)
   - [x] [6-2. Weekly todo (DEMO)](mission/mission_06/todo_list_ver_week)
 - [x] 미션 7. 스마트 드롭다운 메뉴
-  - [x] [7. LA Lakers Rosters (DEMO](mission/mission_07/smart_dropdown) 
+  - [x] [7. LA Lakers Rosters (DEMO)](mission/mission_07/smart_dropdown) 
 
 <br>
 
