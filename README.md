@@ -4,10 +4,12 @@
 
 <br>
 
-- [마스터즈 코코아 회고]()
+- 마스터즈 코코아 회고(예정)
 - [알고리즘 풀이 저장소](https://github.com/mansaout/TIL/tree/main/Algorithm)
 
 ## **Mission**
+
+**- [Toy Project : 배달 주문 관리 어드민 페이지](delivery-order-manager/README.md)**
 
 - [x] [미션 1. 다각형 넓이 구하기](mission/mission_01/01_get_area.js)
 - [x] [미션 2-1. 진수 변환기](mission/mission_02/02_1_notation.js)
@@ -25,7 +27,7 @@
   - [x] [6-1. Daily todo (DEMO)](mission/mission_06/todo_list_ver_today)
   - [x] [6-2. Weekly todo (DEMO)](mission/mission_06/todo_list_ver_week)
 - [x] 미션 7. 스마트 드롭다운 메뉴
-  - [x] [7. LA Lakers Rosters (DEMO)](mission/mission_07/smart_dropdown) 
+  - [x] [7. LA Lakers Rosters (DEMO)](mission/mission_07/smart_dropdown)
 
 <br>
 
