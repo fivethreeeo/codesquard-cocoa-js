@@ -7,8 +7,6 @@
 - [마스터즈 코코아 회고]()
 - [알고리즘 풀이 저장소](https://github.com/mansaout/TIL/tree/main/Algorithm)
 
-<br>
-
 ## **Mission**
 
 - [x] [미션 1. 다각형 넓이 구하기](mission/mission_01/01_get_area.js)
