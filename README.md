@@ -4,8 +4,10 @@
 
 <br>
 
-- ### [마스터즈 코코아 회고]()
-- ### [**알고리즘 풀이 저장소**](https://github.com/mansaout/TIL/tree/main/Algorithm)
+- [마스터즈 코코아 회고]()
+- [알고리즘 풀이 저장소](https://github.com/mansaout/TIL/tree/main/Algorithm)
+
+<br>
 
 ## **Mission**
 
