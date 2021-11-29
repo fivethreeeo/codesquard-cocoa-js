@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>배달주문관리 어드민</title>
+    <link rel="stylesheet" href="src/css/main.css" />
+    <script defer type="module" src="src/js/app.js"></script>
+  </head>
+  <body>
+    <main class="admin-page">
+      <!-- header -->
+      <header class="admin-page__header">
+        <div class="admin-page__name">{점포명}</div>
+        <div class="admin-page__clock">{현재시간}</div>
+      </header>
+
+      <!-- views -->
+      <section class="admin-page__views">
+        <!-- order view -->
+        <section class="order-view">
+          <div class="store-view__title">주문 현황</div>
+          <ul class="store-view__overall-status">
+            <li>접수 대기 : <span>{1}</span></li>
+            <li>메뉴 준비 중 : <span>{1}</span></li>
+            <li>배달 대기 중 : <span>{1}</span></li>
+            <li>배달 중 : <span>{1}</span></li>
+            <li>배달 완료 : <span>{1}</span></li>
+          </ul>
+          <ul class="store-view__order-cards">
+            <li class="order-card">
+              <span class="order-card__status">{상태: 접수대기}</span>
+              <span class="order-card__timer">{타이머}</span>
+              <span class="order-card__id">{주문번호}</span>
+              <span class="order-card__created-time">{주문시간}</span>
+              <span class="order-card__menu">{메뉴}</span>
+              <span class="order-card__price">{총 금액}</span>
+              <button class="order-card__btn">{버튼: 접수하기}</button>
+            </li>
+            <li class="order-card--normal">
+              <span class="order-card__status">{상태: 접수대기}</span>
+              <span class="order-card__timer">{타이머}</span>
+              <span class="order-card__id">{주문번호}</span>
+              <span class="order-card__created-time">{주문시간}</span>
+              <span class="order-card__menu">{메뉴}</span>
+              <span class="order-card__price">{총 금액}</span>
+              <button class="order-card__btn">{버튼: 접수하기}</button>
+            </li>
+          </ul>
+        </section>
+        <!-- store view -->
+        <section class="store-view">
+          <div class="store-view__store-status">
+            <button class="store-view__btn--open">OPEN</button>
+            <button class="store-view__btn--close">CLOSE</button>
+            <button class="store-view__btn--break">BREAK</button>
+          </div>
+          <ul class="store-view__menu-list">
+            <li>
+              <span class="store-view__menu">{메뉴1}</span>
+              <button class="store-view__btn--off">판매중지</button>
+            </li>
+            <li>
+              <span class="store-view__menu">{메뉴2}</span>
+              <button class="store-view__btn--on">판매재개</button>
+            </li>
+          </ul>
+          <div class="store-view__log-message">
+            <p>어드민 온~</p>
+          </div>
+        </section>
+      </section>
+    </main>
+  </body>
+</html>
