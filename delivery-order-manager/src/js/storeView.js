@@ -20,8 +20,9 @@ export default class AdminStoreView {
   }
 
   renderClock() {
+    this.clockEl.textContent = `현재시각: ${currentTime()}`;
     setInterval(() => {
-      this.clockEl.textContent = currentTime();
+      this.clockEl.textContent = `현재시각: ${currentTime()}`;
     }, 1000);
   }
 }
