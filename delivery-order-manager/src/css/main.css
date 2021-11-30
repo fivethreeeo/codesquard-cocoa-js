@@ -46,3 +46,39 @@ ul, li, dl, dt, dd { padding: 0; margin: 0; }
 ul, li { list-style: none; }
 
 strong { font-weight: bold; }
+
+body { background: #e9ecef; color: #212529; }
+
+.store-view { display: -webkit-box; display: -ms-flexbox; display: flex; -ms-flex-wrap: wrap; flex-wrap: wrap; padding: 16px 24px 24px; width: 100%; min-width: 800px; max-width: 1024px; background: #fff; }
+
+.store-view__name { width: 100%; font-size: 24px; font-weight: 700; }
+
+.store-view__clock { margin: 8px 0 24px; width: 100%; font-size: 18px; font-weight: 500; }
+
+.store-view__store-status, .store-view__menu-list, .store-view__notice-window { height: 240px; }
+
+.store-view__store-status { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; gap: 16px; padding: 16px; width: 15%; background: #dee2e6; }
+
+.store-view__status-mark { font-size: 20px; font-weight: 900; }
+
+.store-view__status-btn { padding: 4px 0; background: #f1f3f5; }
+
+.store-view__menu-list { margin: 0 16px; padding: 16px; width: calc(45% - 32px); background: #dee2e6; }
+
+.store-view__menu-list li { font-size: 14px; margin-bottom: 12px; }
+
+.store-view__menu-status { display: inline-block; margin: 0 8px 0 2px; font-size: 16px; font-weight: 900; color: royalblue; }
+
+.store-view__menu-status--off { color: tomato; }
+
+.store-view__menu-btn { padding: 4px 6px 2px; font-size: 13px; background: #f1f3f5; }
+
+.store-view__notice-window { padding: 8px 16px; width: 40%; background: #dee2e6; overflow-y: scroll; }
+
+.store-view__notice-window p { font-size: 14px; color: #495057; }
+
+.store-view__notice-window p:first-child { position: fixed; color: #212529; font-weight: 900; }
+
+.store-view__notice-window p:nth-child(2) { margin-top: 20px; }
+
+.admin-page { margin-top: 40px; padding: 0 24px; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; -webkit-box-align: center; -ms-flex-align: center; align-items: center; gap: 40px; }
