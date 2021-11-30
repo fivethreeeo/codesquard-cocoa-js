@@ -1,3 +1,9 @@
 @import 'base/reset';
-@import 'components/view';
+@import 'base/variables';
+@import 'base/normalize';
+
+@import 'components/storeView';
+@import 'components/orderView';
+@import 'components/orderCard';
+
 @import 'pages/index';
