@@ -1,9 +1,11 @@
 import { stampTime, getRandomNumber, currentTime } from './util.js';
 
 /**
- * Order Operator
- * 역할 : 점포 관리 영역 ui 출력
+ * Order Generator
+ * 역할 : 해당 점포의 주문 생성
  *
+ * Controller에서 랜덤으로 요청
+ * 주문 내용 - id, 주문상태, 생성시간, 주문메뉴, 주문메뉴개수, 주문총가격
  */
 
 export default class OrderGenerator {
@@ -17,9 +19,9 @@ export default class OrderGenerator {
       id: stampTime(),
       createdTime: currentTime(),
       status: '접수대기',
-      price: this.getTotalPrice(this.getMenu()),
       menu: this.getMenu(),
       menuCount: this.getMenu().length,
+      price: this.getTotalPrice(this.getMenu()),
     };
     return order;
   }
