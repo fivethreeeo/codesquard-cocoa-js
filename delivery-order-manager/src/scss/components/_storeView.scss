@@ -23,7 +23,7 @@
   &__store-status,
   &__menu-list,
   &__notice-window {
-    height: 208px;
+    height: 240px;
   }
 
   &__store-status {
@@ -48,7 +48,7 @@
   &__menu-list {
     margin: 0 16px;
     padding: 16px;
-    width: calc(40% - 32px);
+    width: calc(45% - 32px);
     background: $gray-3;
     li {
       font-size: 14px;
@@ -76,7 +76,7 @@
 
   &__notice-window {
     padding: 8px 16px;
-    width: 45%;
+    width: 40%;
     background: $gray-3;
     overflow-y: scroll;
     p {
