@@ -9,15 +9,16 @@ export default class AdminModel {
   constructor(store) {
     this.name = store.name;
     this.menu = store.menu;
-    this.status = 'close';
+    this.status = 'open';
     this.orders = {};
     this.report = {
       date: getFullDate(),
-      openingHours: null,
-      orderCount: 0,
-      failedOrderCount: 0,
-      sales: 0,
-      orderTransaction: 0,
+      openTime: null,
+      closeTime: null,
+      orderCount: null,
+      failedOrderCount: null,
+      sales: null,
+      orderTransaction: null,
     };
   }
 }
