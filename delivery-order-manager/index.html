@@ -12,28 +12,18 @@
     <main class="admin-page">
       <!-- store view -->
       <section class="store-view">
-        <div class="store-view__name"></div>
-        <div class="store-view__clock">현재시간</div>
+        <div class="store-view__name">{점포명}</div>
+        <div class="store-view__clock">{현재시간}</div>
         <div class="store-view__store-status">
-          <button name="open" class="store-view__btn">OPEN</button>
-          <button name="close" class="store-view__btn">CLOSE</button>
-          <button name="break" class="store-view__btn">BREAK</button>
+          <div>
+            현재상태: <span class="store-view__status-mark">{점포상태}</span>
+          </div>
+          <button name="open" class="store-view__status-btn">OPEN</button>
+          <button name="break" class="store-view__status-btn">BREAK</button>
+          <button name="close" class="store-view__status-btn">CLOSE</button>
         </div>
-        <ul class="store-view__menu-list">
-          <li>
-            <span class="store-view__menu">{메뉴1}</span>
-            <button name="menuOn" class="store-view__menu-btn">판매중지</button>
-          </li>
-          <li>
-            <span class="store-view__menu">{메뉴2}</span>
-            <button name="menuOff" class="store-view__menu-btn">
-              판매재개
-            </button>
-          </li>
-        </ul>
-        <div class="store-view__log-message">
-          <p>어드민 온~</p>
-        </div>
+        <ul class="store-view__menu-list"></ul>
+        <div class="store-view__notice-window"><p>- NOTICE -</p></div>
       </section>
 
       <!-- order view -->
