@@ -9,7 +9,7 @@ export default class AdminModel {
   constructor(store) {
     this.name = store.name;
     this.menu = store.menu;
-    this.status = 'open';
+    this.status = 'close';
     this.orders = {};
     this.report = {
       date: getFullDate(),
