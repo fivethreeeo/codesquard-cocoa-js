@@ -3,6 +3,16 @@ function stampTime() {
   return stamp;
 }
 
+function getRandomMilliSecond(min, max) {
+  const number = Math.floor(Math.random() * max + min) * 1000;
+  return number;
+}
+
+function getRandomNumber(min, max) {
+  const number = Math.floor(Math.random() * max + min);
+  return number;
+}
+
 function currentTime() {
   const date = new Date();
   let hour = date.getHours();
@@ -11,7 +21,7 @@ function currentTime() {
   hour = updateTimeFormat(hour);
   min = updateTimeFormat(min);
   sec = updateTimeFormat(sec);
-  const currentTime = `${hour} : ${min} : ${sec}`;
+  const currentTime = `${hour}:${min}:${sec}`;
   return currentTime;
 }
 
@@ -26,4 +36,10 @@ function getFullDate(date = new Date()) {
   return fullDate;
 }
 
-export { stampTime, currentTime, getFullDate };
+export {
+  stampTime,
+  getRandomMilliSecond,
+  getRandomNumber,
+  currentTime,
+  getFullDate,
+};
