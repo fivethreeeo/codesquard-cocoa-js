@@ -26,7 +26,7 @@ export default class OrderGenerator {
     return order;
   }
 
-  // 1~10개 랜덤 메뉴 구하기
+  // 1~5개 랜덤 메뉴 구하기
   getMenu() {
     const availableMenu = this.getAvailableMenu();
     const orderCountedMenu = this.setMenuOrderCount(availableMenu);
@@ -37,7 +37,7 @@ export default class OrderGenerator {
 
   setMenuOrderCount(availableMenu) {
     const availableMenuLength = availableMenu.length;
-    const maxCount = 10;
+    const maxCount = 5;
     const randomMenuCount = Math.floor(Math.random() * maxCount + 1);
     const orderCountedMenu = JSON.parse(JSON.stringify(availableMenu));
 
