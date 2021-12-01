@@ -35,22 +35,38 @@ export default class AdminStoreView {
   }
 
   renderMenuList() {
-    this.menu.forEach((item) => {
-      const listItemEl = this.createMenuItem(item[1], item[2], item[0]);
+    this.menu.forEach((item, index) => {
+      const listItemEl = this.createMenuItem(item[1], item[2], item[0], index);
       this.menuListEl.innerHTML += listItemEl;
     });
 
     this.printNotice('메뉴 리스트 생성');
   }
 
-  createMenuItem = (menu, price, status) =>
-    `<li>
+  renderMenuItem(btnName, itemIndex, nameEl, statusEl, btnEl) {
+    if (btnName === 'menuOn') {
+      this.model.menu[itemIndex][0] = 'on';
+      btnEl.setAttribute('name', 'menuOff');
+      statusEl.classList.remove('store-view__menu-status--off');
+      statusEl.textContent = 'on';
+      this.printNotice(`메뉴 상태 변경: ${nameEl} off -> on`);
+      return;
+    }
+    this.model.menu[itemIndex][0] = 'off';
+    btnEl.setAttribute('name', 'menuOn');
+    statusEl.classList.add('store-view__menu-status--off');
+    statusEl.textContent = 'off';
+    this.printNotice(`메뉴 상태 변경: ${nameEl} on -> off`);
+  }
+
+  createMenuItem = (menu, price, status, index) =>
+    `<li class="index_${index}">
       <span class="store-view__menu">${menu} (${price})</span>
       <span class="store-view__menu-status ${
         status === `off` ? `store-view__menu-status--off` : ``
       }">${status}</span>
       <button name="${
-        status === `on` ? `menuOn` : `menuOff`
+        status === `on` ? `menuOff` : `menuOn`
       }" class="store-view__menu-btn">ON/OFF</button>
     </li>`;
 
@@ -59,5 +75,6 @@ export default class AdminStoreView {
     messageEl.classList.add(category);
     messageEl.textContent = `[${currentTime()}] ${message}`;
     this.noticeWindowEl.append(messageEl);
+    this.noticeWindowEl.scrollTop = this.noticeWindowEl.scrollHeight;
   }
 }
