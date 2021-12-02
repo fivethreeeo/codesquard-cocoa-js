@@ -36,10 +36,15 @@ function getFullDate(date = new Date()) {
   return fullDate;
 }
 
+function priceToString(price) {
+  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}
+
 export {
   stampTime,
   getRandomMilliSecond,
   getRandomNumber,
   currentTime,
   getFullDate,
+  priceToString,
 };
