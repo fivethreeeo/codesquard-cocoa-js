@@ -1,9 +1,10 @@
-import { currentTime } from './util.js';
+import { currentTime, priceToString } from './util.js';
 
 /**
  * Store View
  * 역할 : 점포 관리 영역 ui 출력
  *
+ * Controller에서 받은 요청 처리
  * Model에서 받거나, View 내부에서 처리 가능한 것은 Controller 없이 직접 처리
  */
 
@@ -43,16 +44,14 @@ export default class AdminStoreView {
     this.printNotice('메뉴 리스트 생성');
   }
 
-  renderMenuItem(btnName, itemIndex, nameEl, statusEl, btnEl) {
+  renderMenuItem(btnName, nameEl, statusEl, btnEl) {
     if (btnName === 'menuOn') {
-      this.model.menu[itemIndex][0] = 'on';
       btnEl.setAttribute('name', 'menuOff');
       statusEl.classList.remove('store-view__menu-status--off');
       statusEl.textContent = 'on';
       this.printNotice(`메뉴 상태 변경: ${nameEl} off -> on`);
       return;
     }
-    this.model.menu[itemIndex][0] = 'off';
     btnEl.setAttribute('name', 'menuOn');
     statusEl.classList.add('store-view__menu-status--off');
     statusEl.textContent = 'off';
@@ -61,7 +60,7 @@ export default class AdminStoreView {
 
   createMenuItem = (menu, price, status, index) =>
     `<li class="index_${index}">
-      <span class="store-view__menu">${menu} (${price})</span>
+      <span class="store-view__menu">${menu} (${priceToString(price)})</span>
       <span class="store-view__menu-status ${
         status === `off` ? `store-view__menu-status--off` : ``
       }">${status}</span>
@@ -73,7 +72,7 @@ export default class AdminStoreView {
   printNotice(message, category = 'common') {
     const messageEl = document.createElement('p');
     messageEl.classList.add(category);
-    messageEl.textContent = `[${currentTime()}] ${message}`;
+    messageEl.innerHTML = `[${currentTime()}] ${message}`;
     this.noticeWindowEl.append(messageEl);
     this.noticeWindowEl.scrollTop = this.noticeWindowEl.scrollHeight;
   }

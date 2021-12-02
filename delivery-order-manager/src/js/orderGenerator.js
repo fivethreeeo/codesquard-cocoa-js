@@ -2,7 +2,7 @@ import { stampTime, getRandomNumber, currentTime } from './util.js';
 
 /**
  * Order Generator
- * 역할 : 해당 점포의 주문 생성
+ * 역할 : 해당 점포의 주문을 랜덤 생성
  *
  * Controller에서 랜덤으로 요청
  * 주문 내용 - id, 주문상태, 생성시간, 주문메뉴, 주문메뉴개수, 주문총가격
@@ -15,13 +15,15 @@ export default class OrderGenerator {
   }
 
   createOrder() {
+    const orderMenu = this.getMenu();
     const order = {
       id: stampTime(),
       createdTime: currentTime(),
+      completedTime: null,
       status: '접수대기',
-      menu: this.getMenu(),
-      menuCount: this.getMenu().length,
-      price: this.getTotalPrice(this.getMenu()),
+      menu: orderMenu,
+      menuCount: this.getTotalItemCount(orderMenu),
+      price: this.getTotalPrice(orderMenu),
     };
     return order;
   }
@@ -60,10 +62,13 @@ export default class OrderGenerator {
     return availableMenu;
   }
 
+  getTotalItemCount(orderMenu) {
+    const count = orderMenu.reduce((count, menu) => count + menu[2], 0);
+    return count;
+  }
+
   getTotalPrice(orderMenu) {
-    const totalPrice = orderMenu.reduce((price, menu) => {
-      return price + menu[1] * menu[2];
-    }, 0);
+    const totalPrice = orderMenu.reduce((price, menu) => price + menu[1] * menu[2], 0);
 
     return totalPrice;
   }

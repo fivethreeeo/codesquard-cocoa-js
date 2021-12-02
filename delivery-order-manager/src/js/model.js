@@ -10,7 +10,7 @@ export default class AdminModel {
     this.name = store.name;
     this.menu = store.menu;
     this.status = 'close';
-    this.orders = {};
+    this.orderList = {};
     this.report = {
       date: getFullDate(),
       openTime: null,

@@ -6,26 +6,26 @@ import AdminOrderView from './orderView.js';
 import AdminController from './controller.js';
 import OrderGenerator from './orderGenerator.js';
 
-const yModel = new AdminModel(stores.yellow);
-const yStoreView = new AdminStoreView(yModel);
-const yOrderView = new AdminOrderView(yModel);
-const yOrderGenerator = new OrderGenerator(yModel);
-const yController = new AdminController(
-  yModel,
-  yOrderGenerator,
-  yStoreView,
-  yOrderView
+const yellowModel = new AdminModel(stores.yellow);
+const yellowStoreView = new AdminStoreView(yellowModel);
+const yellowOrderView = new AdminOrderView(yellowModel);
+const yellowOrderGenerator = new OrderGenerator(yellowModel);
+const yellowController = new AdminController(
+  yellowModel,
+  yellowOrderGenerator,
+  yellowStoreView,
+  yellowOrderView
 );
 
 function init() {
-  //view
-  yStoreView.printNotice(`${yModel.name} 어드민 페이지 생성`);
-  yStoreView.renderStoreName();
-  yStoreView.renderClock();
-  yStoreView.renderStoreStatus();
-  yStoreView.renderMenuList();
-
-  //controller
-  yController.setEventListener();
+  yellowStoreView.printNotice(`${yellowModel.name} 어드민 페이지 생성`);
+  yellowStoreView.renderClock();
+  yellowStoreView.renderStoreName();
+  yellowStoreView.renderStoreStatus();
+  yellowStoreView.printNotice(`점포 상태: ${yellowModel.status}`, 'important');
+  yellowStoreView.renderMenuList();
+  yellowOrderView.renderOverallStatusCount();
+  yellowController.setEventListener();
+  yellowStoreView.printNotice('어드민 준비 완료');
 }
 init();
