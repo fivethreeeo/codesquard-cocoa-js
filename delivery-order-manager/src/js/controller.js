@@ -213,7 +213,7 @@ export default class AdminController {
 
     return `<li id="${order.id}" class="order-card">
               <span class="status"><span class="order-card__status">${order.status}</span></span>
-              <span class="timer"><span class="order-card__timer">{타이머}</span></span>
+              <span class="timer"><span class="order-card__timer"></span></span>
               <span class="text">주문번호:<span class="order-card__id"> ${order.id}</span></span>
               <span class="text">주문시간:<span class="order-card__created-time"> ${order.createdTime}</span></span>
               <span class="text">총가격:<span class="order-card__price"> ${priceToString(order.price)}</span></span>
