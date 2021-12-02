@@ -1,0 +1,35 @@
+.order-view {
+  padding: 16px 24px 24px;
+  width: 100%;
+  min-width: 800px;
+  max-width: 1024px;
+  background: $gray-0;
+
+  &__title {
+    display: none;
+    width: 100%;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  &__overall-status {
+    margin-bottom: 24px;
+    padding: 0 160px;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    font-weight: 500;
+    justify-content: space-between;
+    span {
+      display: block;
+      font-size: 20px;
+      font-weight: 900;
+    }
+  }
+
+  &__order-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calc(5% / 4);
+  }
+}
