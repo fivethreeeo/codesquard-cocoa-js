@@ -19,44 +19,27 @@
             현재상태: <span class="store-view__status-mark">{점포상태}</span>
           </div>
           <button name="open" class="store-view__status-btn">OPEN</button>
-          <button name="break" class="store-view__status-btn">BREAK</button>
           <button name="close" class="store-view__status-btn">CLOSE</button>
+          <button name="break" class="store-view__status-btn">BREAK</button>
         </div>
         <ul class="store-view__menu-list"></ul>
-        <div class="store-view__notice-window"><p>- NOTICE -</p></div>
+        <div class="store-view__notice-window">
+          <p>- 알림 -</p>
+        </div>
       </section>
 
       <!-- order view -->
       <section class="order-view">
         <div class="order-view__title">주문 현황</div>
         <ul class="order-view__overall-status">
-          <li>접수 대기 : <span>{1}</span></li>
-          <li>메뉴 준비 중 : <span>{1}</span></li>
-          <li>배달 대기 중 : <span>{1}</span></li>
-          <li>배달 중 : <span>{1}</span></li>
-          <li>배달 완료 : <span>{1}</span></li>
-          <li>취소 : <span>{1}</span></li>
+          <li><span class="waiting"></span>접수 대기</li>
+          <li><span class="preparing"></span>메뉴 준비 중</li>
+          <li><span class="ready"></span>배달 대기 중</li>
+          <li><span class="delivering"></span>배달 중</li>
+          <li><span class="completed"></span>배달 완료</li>
         </ul>
-        <ul class="order-view__order-cards">
-          <li class="order-card">
-            <span class="order-card__status">{상태: 접수대기}</span>
-            <span class="order-card__timer">{타이머}</span>
-            <span class="order-card__id">{주문번호}</span>
-            <span class="order-card__created-time">{주문시간}</span>
-            <span class="order-card__menu">{메뉴}</span>
-            <span class="order-card__price">{총 금액}</span>
-            <button class="order-card__btn">{버튼: 접수하기}</button>
-          </li>
-          <li class="order-card">
-            <span class="order-card__status">{상태: 접수대기}</span>
-            <span class="order-card__timer">{타이머}</span>
-            <span class="order-card__id">{주문번호}</span>
-            <span class="order-card__created-time">{주문시간}</span>
-            <span class="order-card__menu">{메뉴}</span>
-            <span class="order-card__price">{총 금액}</span>
-            <button class="order-card__btn">{버튼: 접수하기}</button>
-          </li>
-        </ul>
+        <ul class="order-view__order-cards"></ul>
+        <ul class="order-view__completed-cards"></ul>
       </section>
     </main>
   </body>
