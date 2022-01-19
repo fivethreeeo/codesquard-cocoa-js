@@ -30,12 +30,12 @@
 
 ## **다시 풀기, 2021.12**
 
-- [1. 다각형 넓이 구하기](Javascript/review_cocoa/figureArea.js)
-- [2-1. 진수 변환기](Javascript/review_cocoa/notation.js)
-- [2-2. 배열 다루기](Javascript/review_cocoa/playArray.js)
-- [2-2-6. reduce 만들기](Javascript/review_cocoa/myReduce.js)
-- [3. 해시맵 구현](Javascript/review_cocoa/hashMap.js)
-- [4. 괄호문법 검사기](Javascript/review_cocoa/checkBrackets.js)
+- [1. 다각형 넓이 구하기](review/figureArea.js)
+- [2-1. 진수 변환기](review/notation.js)
+- [2-2. 배열 다루기](review/playArray.js)
+- [2-2-6. reduce 만들기](review/myReduce.js)
+- [3. 해시맵 구현](review/hashMap.js)
+- [4. 괄호문법 검사기](review/checkBrackets.js)
 
 <br>
 
