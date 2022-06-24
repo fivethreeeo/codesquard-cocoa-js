@@ -1,6 +1,6 @@
 # 배달주문관리 어드민 페이지
 
-- demo : https://mansaout.github.io/codesquard-cocoa-js/delivery-order-manager/
+- demo : https://sangbeom.github.io/codesquard-cocoa-js/delivery-order-manager/
 
 - 기획안(화면설계, js구조) : https://www.figma.com/file/xHHMoLGVwQIB7XEH7qfOC7/Untitled?node-id=0%3A1
 
