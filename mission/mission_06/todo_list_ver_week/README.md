@@ -1,6 +1,6 @@
 <br>
 
-##### demo : https://mansaout.github.io/codesquard-cocoa-js/mission/mission_06/todo_list_ver_week/
+##### demo : https://sangbeomheo.github.io/codesquard-cocoa-js/mission/mission_06/todo_list_ver_week/
 
 <br>
 
